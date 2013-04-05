@@ -40,7 +40,7 @@ int parser(char *input,  int nbytes, char **argList)
 			array_index++;
 		}
 		if (array_index == maxArgs)
-		{
+		{ //prevent more than 15 arguments from being stored
 			break;
 		}
 	}
@@ -91,20 +91,20 @@ int main(int argc, char *argv[])
 	while(1)
 	{
 		clientSocket = accept(serverSocket, (struct sockaddr *) &clientAddr, &sinSize);
-		send(clientSocket, "LOL IT Worked", strlen("LOL IT Worked"), 0);
 		int msgLen = 512;
 		char inputBuf[msgLen];
-		memset(inputBuf, 0, msgLen); //set input to NULL
+		memset(inputBuf, 0, msgLen);
 
 		int nbytes;
 		while( (nbytes = recv(clientSocket, inputBuf, msgLen, 0)) )
 		{
+			//handles case if string is too long
 			if ((inputBuf[msgLen-1]) && (inputBuf[msgLen-1]!='\n'))
 			{
 				inputBuf[msgLen-2]='\r';
 				inputBuf[msgLen-1]='\n';//should a message be saved if it is cut off?
 			}
-			printf("I got your message! It is: %s", inputBuf); //remove this test later
+			printf("I got your message! It is: %s", inputBuf); //remove later
 			char **argList;
 			int maxArgs = 15;
 			argList = (char **) malloc((1+maxArgs)*sizeof(char **));
