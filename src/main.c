@@ -18,8 +18,7 @@
  * Given an array containing a command, its number of bytes,
  * and an empty 2D char array, fills the 2D char array with
  * each individual word in the command and returns the 
- * number of arguments in the command (total number of words
- * in the command minus one).
+ * number of words in the command.
  */
 int parser(char *input,  int nbytes, char **argList)
 {
@@ -29,11 +28,11 @@ int parser(char *input,  int nbytes, char **argList)
 	int array_index = 0;
 	int start_cpy = 0;
 	int n;
-	for (n=0; n<nbytes-1; n++)
+	for (n=0; n<nbytes; n++)
 	{
-		if (input[n] == ' ')
+		if ((input[n] == ' ') || (n == nbytes-2))
 		{
-			int argSize = n-1-start_cpy;
+			int argSize = n-start_cpy;
 			argList[array_index] = (char *) malloc(argSize);
 			memcpy(argList[array_index], input+start_cpy, argSize);
 			start_cpy = n+1;
@@ -102,15 +101,15 @@ int main(int argc, char *argv[])
 			if ((inputBuf[msgLen-1]) && (inputBuf[msgLen-1]!='\n'))
 			{
 				inputBuf[msgLen-2]='\r';
-				inputBuf[msgLen-1]='\n';//should a message be saved if it is cut off?
+				inputBuf[msgLen-1]='\n'; //should a message be saved if it is cut off?
 			}
 			printf("I got your message! It is: %s", inputBuf); //remove later
 			char **argList;
 			int maxArgs = 15;
 			argList = (char **) malloc((1+maxArgs)*sizeof(char **));
 			int argNum = parser(inputBuf, nbytes, argList);
-			printf("Number of args:%d\n", argNum); //remove later 
-
+			printf("Number of words:%d\n", argNum); //remove later 
+			
 			free(argList);
 
 			memset(inputBuf, 0, msgLen); //clear buffer
