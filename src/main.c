@@ -22,7 +22,6 @@
  */
 int parser(char *input,  int nbytes, char **argList)
 {
-	//terminates with "\r\n"
 
 	int maxArgs = 15;	
 	int array_index = 0;
@@ -30,7 +29,7 @@ int parser(char *input,  int nbytes, char **argList)
 	int n;
 	for (n=0; n<nbytes; n++)
 	{
-		if ((input[n] == ' ') || (n == nbytes-2))
+		if ((input[n] == ' ') || (n == nbytes-2)) //cuts off \r\n
 		{
 			int argSize = n-start_cpy;
 			argList[array_index] = (char *) malloc(argSize);
