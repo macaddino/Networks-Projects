@@ -68,6 +68,9 @@ void command_init(char ** commands)
 	commands[1] = "USER";
 }
 
+/* user_info_size:
+ * Returns size of the userInfo struct.
+ */
 size_t user_info_size(const void *el)
 {
 	return sizeof(userInfo);
@@ -88,7 +91,11 @@ int command_search(char *command, char **comList)
 	return -1;
 }
 
-
+/* send_response:
+ * Given the client socket, the response code, and a userInfo struct,
+ * sends an appropriate response to the client.
+ * Returns 0 upon success.
+ */
 int send_response(int clientSocket, char * response, userInfo * info)
 {
         char serverName[] = ":irc.example.com";
@@ -146,8 +153,19 @@ int send_response(int clientSocket, char * response, userInfo * info)
         return 0;
 }
 
-
-void nick(char * nickname, userInfo * info, list_t * userList, int cliSocket) //perhaps this should take a userInfo struct.
+/* nick:
+ * Given a nickname, a userInfo struct, a userList, and a socket,
+ * modifies a user's nickname and updates the userList accordingly.
+ * -If user data has not yet been entered, userInfo struct is 
+ * updated, but userList entry is not added. 
+ * -If user data has been enetered,
+ * and nick is being entered for the first time, updates userInfo struct and
+ * inserts new entry into userList and sends RPL_WELCOME to client.
+ * -If both nick and user data have already
+ * been entered, updates the userInfo struct and updates the userList entry.
+ * (DOES NOT DO THIS UPDATE YET.)
+ */
+void nick(char * nickname, userInfo * info, list_t * userList, int cliSocket)
 {
 	int maxNickLen = 9;
 	int nickLen = strlen(nickname);
@@ -175,8 +193,6 @@ void nick(char * nickname, userInfo * info, list_t * userList, int cliSocket) //
 		list_append(userList, info);
 		// now, sort the list based on nicki
 		send_response(cliSocket, RPL_WELCOME, info);
-		printf("Welcome to the server!\n");
-		// send welcome message back from server
 	}
 	else if (!(isFirstNick))
 	{
@@ -188,6 +204,17 @@ void nick(char * nickname, userInfo * info, list_t * userList, int cliSocket) //
 
 }
 
+/* user:
+ * Given a username, a name, a userInfo struct, a userList, and a client
+ * socket, updates the user information as long as the user has not
+ * previously registered. 
+ * -If both the nickname data and user data have already been entered,
+ * user is already registered, and ALREADYREGISTERED error is sent to client.
+ * -Else, user data is inserted in userInfo struct. If nick data is already
+ * present, info struct is updated and a new entry is inserted in userList
+ * and RPL_WELCOME is sent to  client. If nick data is not present, 
+ * user data is updated in info struct.
+ */
 void user(char * username, char * name, userInfo * info, list_t * userList, int cliSocket)
 {
 	int maxUserLen = 9;
@@ -211,8 +238,6 @@ void user(char * username, char * name, userInfo * info, list_t * userList, int 
 	if ((info->username[0]) && (info->nickname[0]))
 	{
 		send_response(cliSocket, ERR_ALREADYREGISTRED, info);
-		printf("You have already registered!\n");
-		// ERROR : ALREADY REGISTERED
 	}
 	else
 	{
@@ -235,8 +260,6 @@ void user(char * username, char * name, userInfo * info, list_t * userList, int 
 			list_append(userList, info);
 			// sort list
 			send_response(cliSocket, RPL_WELCOME, info);
-			printf("Welcome to the server!\n");
-			// Welcome message
 		}
 	}
 
@@ -244,6 +267,14 @@ void user(char * username, char * name, userInfo * info, list_t * userList, int 
 	printf("User struct says NAME is %s\n", info->name);
 }
 
+/* run_command:
+ * Given a command macro, a list of client command arguments, a number of 
+ * arguments, a userInfo struct, a userList, and a client socket,
+ * calls the appropriate function corresponding to the command sent by the
+ * client and passes on command arguments and other required data to the
+ * appropriate function.
+ * Returns 1 on success and -1 on failure.
+ */
 int run_command(int command, char ** argList, int argNum, userInfo * info, list_t * userList, int cliSocket)
 {
 	switch(command)
@@ -355,21 +386,6 @@ int main(int argc, char *argv[])
 				((userInfo *)list_get_at(&userList, 0))->name,
 				((userInfo *)list_get_at(&userList, 0))->username);
 			}
-
-
-                        if (list_get_at(&userList, 1)){
-                                printf("In list: User has nickname: %s, name: %s, username: %s.\n", ((userInfo *)list_get_at(&userList, 1))->nickname,          
-                                ((userInfo *)list_get_at(&userList, 1))->name,
-                                ((userInfo *)list_get_at(&userList, 1))->username);
-                        }
-
-
-                        if (list_get_at(&userList, 2)){
-                                printf("In list: User has nickname: %s, name: %s, username: %s.\n", ((userInfo *)list_get_at(&userList, 2))->nickname,          
-                                ((userInfo *)list_get_at(&userList, 2))->name,
-                                ((userInfo *)list_get_at(&userList, 2))->username);
-                        }
-
 
 			free(argList);
 
