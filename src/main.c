@@ -41,6 +41,15 @@ int parser(char *input,  int nbytes, char **argList)
 	int n;
 	for (n=0; n<nbytes; n++)
 	{
+		if (input[n]==':')
+		{
+			int argSize = nbytes-start_cpy;
+			argList[array_index] = (char *) malloc(argSize);
+			memcpy(argList[array_index], input+start_cpy, argSize);
+			argList[array_index][argSize] = '\0';
+			array_index++;
+			break;
+		}
 		if ((input[n] == ' ') || (n == nbytes-2)) //cuts off \r\n
 		{
 			int argSize = n-start_cpy;
@@ -243,15 +252,18 @@ void user(char * username, char * name, userInfo * info, list_t * userList, int 
 	{
 		memset(info->username, 0, maxUserLen);
 		memset(info->name, 0, maxNameLen);
+		int nameOffset = 0; // Accounts for offset of colon
 		for (int i=0; i<userLen; i++)
 		{
 			info->username[i] = username[i];
 		}
 		if (userOverflow)
 			info->username[userLen-1] = '\0';
+		if (name[0] == ':')
+			nameOffset = 1;
 		for (int i=0; i<nameLen; i++)
 		{
-			info->name[i] = name[i];
+			info->name[i] = name[i+nameOffset]; // Do not include ':' in name
 		}
 		if (nameOverflow)
 			info->name[nameLen-1] = '\0';
@@ -299,6 +311,26 @@ int run_command(int command, char ** argList, int argNum, userInfo * info, list_
 	return 1;
 }
 
+
+int break_commands(char *input, int nbytes, char **argList)
+{
+	int array_index=0;
+	int start_cpy=0;
+	int n;
+	for (n=0; n<nbytes; n++)
+	{
+		if ((input[n] == '\n') && (n>0) && (input[n-1] == '\r'))
+		{
+			int argSize = n-start_cpy;
+			argList[array_index] = (char *) malloc(argSize);
+			memcpy(argList[array_index], input+start_cpy, argSize);
+			array_index++;
+			start_cpy = n+1;
+		}
+	}
+	
+	return array_index;
+}
 
 int main(int argc, char *argv[])
 {
@@ -350,8 +382,11 @@ int main(int argc, char *argv[])
 		clientSocket = accept(serverSocket, (struct sockaddr *) &clientAddr, &sinSize);
 		int msgLen = 512;
                 int nbytes;
+		int n;
 		char inputBuf[msgLen];
+		char buildBuf[msgLen];
                 char **commandList;
+		int buildLen = 0;
 
 		memset(inputBuf, 0, msgLen);
 		commandList = (char **) malloc(COMMANDNUM*sizeof(char **));
@@ -364,32 +399,51 @@ int main(int argc, char *argv[])
 
 		while( (nbytes = recv(clientSocket, inputBuf, msgLen, 0)) )
 		{
-			//handles case if string is too long
-			if ((inputBuf[msgLen-1]) && (inputBuf[msgLen-1]!='\n'))
-			{
-				inputBuf[msgLen-2]='\r';
-				inputBuf[msgLen-1]='\n'; //should a message be saved if it is cut off?
-			}
+			memcpy(buildBuf+buildLen, inputBuf, nbytes); 
+			buildLen = buildLen + nbytes;
+			
 			printf("I got your message! It is: %s", inputBuf); //remove later
-			char **argList;
-			int maxArgs = 15;
-			argList = (char **) malloc((1+maxArgs)*sizeof(char **));
-			int argNum = parser(inputBuf, nbytes, argList);
-			printf("Number of words:%d\n", argNum); //remove later 
-
-
-			int commandNum = command_search(argList[0], commandList);
-			run_command(commandNum, argList, argNum, &info, &userList, clientSocket);
-
-			if (list_get_at(&userList, 0)){			
-				printf("In list: User has nickname: %s, name: %s, username: %s.\n", ((userInfo *)list_get_at(&userList, 0))->nickname,			
-				((userInfo *)list_get_at(&userList, 0))->name,
-				((userInfo *)list_get_at(&userList, 0))->username);
+	
+			//handles case if string is too long
+			if ((buildBuf[msgLen-1]) && (buildBuf[msgLen-1]!='\n'))
+			{
+				buildBuf[msgLen-2]='\r';
+				buildBuf[msgLen-1]='\n'; //should a message be saved if it is cut off?
 			}
+			else if (buildBuf[nbytes-1]=='\n' && nbytes>1 && buildBuf[nbytes-2]=='\r')
+			{
+				char **argList;
+				int maxArgs = 15;
+				argList = (char **) malloc((1+maxArgs)*sizeof(char **));
+				char **cmndList;
+				cmndList = (char **) malloc(msgLen*sizeof(char **));
+				int numCmnds = break_commands(buildBuf, buildLen, cmndList);
+				printf("Number of commands:%d\n", numCmnds);
 
-			free(argList);
+				for (n=0; n<numCmnds; n++)
+				{
+					int argNum = parser(cmndList[n], nbytes, argList);
+					printf("Number of words:%d\n", argNum); //remove later 
+					int commandNum = command_search(argList[0], commandList);
+					run_command(commandNum, argList, argNum, &info, &userList, clientSocket);
+				}
 
-			memset(inputBuf, 0, msgLen); //clear buffer
+
+				
+				if (list_get_at(&userList, 0)){			
+					printf("User struct nickname: %s\n", info.nickname);
+					printf("User struct name: %s\n", info.name);
+					printf("User struct username: %s\n", info.username);
+					printf("In list: User has nickname: %s\n", ((userInfo *)list_get_at(&userList, 0))->nickname);
+                                        printf("In list: User has name: %s\n", ((userInfo *)list_get_at(&userList, 0))->name);
+                                        printf("In list: User has username: %s\n", ((userInfo *)list_get_at(&userList, 0))->username);
+
+				}
+
+				free(argList);
+				buildLen = 0;
+				memset(inputBuf, 0, msgLen); //clear buffer
+			}
 		}
 	}
 
