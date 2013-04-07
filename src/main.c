@@ -111,6 +111,32 @@ int send_response(int clientSocket, char * response, userInfo * info)
                 send(clientSocket, clientHost, strlen(clientHost), 0);
 		send(clientSocket, "\r\n", 2, 0);
 	}
+	else if (!(strcmp(response, ERR_UNKNOWNCOMMAND)))
+	{
+		send(clientSocket, serverName, strlen(serverName), 0);
+                send(clientSocket, " ", 1, 0);
+		send(clientSocket, ERR_UNKNOWNCOMMAND, 3, 0);
+		send(clientSocket, " ", 1, 0);
+		if (info->nickname[0])
+			send(clientSocket, info->nickname, strlen(info->nickname), 0);
+		else
+			send(clientSocket, "*", 1, 0);
+		send(clientSocket, " ", 1, 0);
+                send(clientSocket, ERR_UNKNOWNCOMMAND_MSG, strlen(ERR_UNKNOWNCOMMAND_MSG), 0);		
+		send(clientSocket, "\r\n", 2, 0);
+	}
+	else if (!(strcmp(response, ERR_ALREADYREGISTRED)))
+	{
+		send(clientSocket, serverName, strlen(serverName), 0);
+                send(clientSocket, " ", 1, 0);
+                send(clientSocket, ERR_ALREADYREGISTRED, 3, 0);
+                send(clientSocket, " ", 1, 0);
+                send(clientSocket, info->nickname, strlen(info->nickname), 0);
+                send(clientSocket, " ", 1, 0);
+                send(clientSocket, ERR_ALREADYREGISTERED_MSG, strlen(ERR_ALREADYREGISTERED_MSG), 0);
+                send(clientSocket, "\r\n", 2, 0);
+
+	}
 	else
 	{
                 printf("Invalid response.\n");
@@ -184,6 +210,7 @@ void user(char * username, char * name, userInfo * info, list_t * userList, int 
 	printf("This is initial username: %s\n", info->username);
 	if ((info->username[0]) && (info->nickname[0]))
 	{
+		send_response(cliSocket, ERR_ALREADYREGISTRED, info);
 		printf("You have already registered!\n");
 		// ERROR : ALREADY REGISTERED
 	}
@@ -234,6 +261,7 @@ int run_command(int command, char ** argList, int argNum, userInfo * info, list_
 				break;
 			}
 		default  :
+			send_response(cliSocket, ERR_UNKNOWNCOMMAND, info);
 			printf("Invalid command.\n");
 			return -1;
 	}
