@@ -16,8 +16,6 @@
 #include "command.h"
 #include "listfxns.h"
 #include "parser.h"
-#include "reply.h"
-#include "response.h"
 #include "structures.h" 
 
 
@@ -69,6 +67,14 @@ int main(int argc, char *argv[])
 	while(1)
 	{
 		clientSocket = accept(serverSocket, (struct sockaddr *) &clientAddr, &sinSize);
+		// retrieve client hostname
+		struct hostent *he;
+		struct in_addr ipv4addr;
+		char *IP = inet_ntoa(clientAddr.sin_addr);
+		inet_pton(AF_INET, IP, &ipv4addr);
+		he = gethostbyaddr(&ipv4addr, sizeof(ipv4addr), AF_INET);
+		char *clientHost = he->h_name;
+
 		int msgLen = 512;
                 int nbytes;
 		int n;
@@ -76,37 +82,40 @@ int main(int argc, char *argv[])
 		char buildBuf[msgLen];
                 char **commandList;
 		int buildLen = 0;
-
 		memset(inputBuf, 0, msgLen);
 		memset(buildBuf, 0, msgLen);
 		commandList = (char **) malloc(COMMANDNUM*sizeof(char **));
-		command_init(commandList); // Initialize command array
+		command_init(commandList);
 		userInfo info = {{ 0 }};
 
+		// collect input from client until disconnect
+		// build input buffer until buffer terminates with "\r\n"
 		while( (nbytes = recv(clientSocket, inputBuf, msgLen, 0)) )
 		{
 			memcpy(buildBuf+buildLen, inputBuf, nbytes); 
 			buildLen = buildLen + nbytes;
 
-			//handles case if string is too long
+			// handles case if string is too long
 			if ((buildBuf[msgLen-1]) && (buildBuf[msgLen-1]!='\n'))
 			{
 				buildBuf[msgLen-2]='\r';
 				buildBuf[msgLen-1]='\n';
 			}
+			// if input buffer ends with \r\n, parse buffer and run commands
 			if (buildBuf[buildLen-1]=='\n' && buildBuf[buildLen-2]=='\r')
 			{
 				char **argList;
 				int maxArgs = 15;
-				argList = (char **) malloc((1+maxArgs)*sizeof(char **));
+				argList = (char **) malloc(maxArgs*sizeof(char **));
 				char **cmndList;
 				cmndList = (char **) malloc(msgLen*sizeof(char **));
+				// determine how many commands are stored in buffer
 				int numCmnds = break_commands(buildBuf, buildLen, cmndList);
 				for (n=0; n<numCmnds; n++)
 				{
 					int argNum = parser(cmndList[n], strlen(cmndList[n]), argList);
-					int commandNum = command_search(argList[0], commandList);
-					run_command(commandNum, argList, argNum, &info, &userList, clientSocket);
+					int command = command_search(argList[0], commandList);
+					run_command(command, argList, argNum, &info, &userList, clientSocket, clientHost);
 				}
 				free(argList);
 				buildLen = 0;

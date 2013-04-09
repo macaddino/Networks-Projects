@@ -6,13 +6,9 @@
  *
  */
 #include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
-#include <sys/types.h>
 #include "command.h"
 #include "reply.h"
-#include "response.h"
 #include "structures.h"
 
 
@@ -44,31 +40,31 @@ int command_search(char *command, char **comList)
 
 
 /* run_command:
- * Given a command macro, a list of client command arguments, a number of
- * arguments, a userInfo struct, a userList, and a client socket,
- * calls the appropriate function corresponding to the command sent by the
- * client and passes on command arguments and other required data to the
- * appropriate function.
+ * Given a command, a list of client command arguments, a number of
+ * arguments, a userInfo struct, a global list of users, a client socket,
+ * and a client hostname, calls the appropriate function corresponding 
+ * to the command sent by the client and passes on command arguments
+ * and other required data to the appropriate function.
  * Returns 1 on success and -1 on failure.
  */
-int run_command(int command, char ** argList, int argNum, userInfo * info, list_t * userList, int cliSocket)
+int run_command(int command, char ** argList, int argNum, userInfo * info, list_t * userList, int cliSocket, char * cliHost)
 {
         switch(command)
         {
                 case NICK:
                         if (argList[1])
                         {
-                                nick(argList[1], info, userList, cliSocket);
+                                nick(argList[1], info, userList, cliSocket, cliHost);
                                 break;
                         }
                 case USER:
                         if ((argList[1]) && (argList[4]))
                         {
-                                user(argList[1], argList[4], info, userList, cliSocket);
+                                user(argList[1], argList[4], info, userList, cliSocket, cliHost);
                                 break;
                         }
                 default  :
-                        send_response(cliSocket, ERR_UNKNOWNCOMMAND, info);
+                        send_response(cliSocket, cliHost, ERR_UNKNOWNCOMMAND, info);
                         return -1;
         }
         return 1;
@@ -76,97 +72,90 @@ int run_command(int command, char ** argList, int argNum, userInfo * info, list_
 
 
 /* user:
- * Given a username, a name, a userInfo struct, a userList, and a client
- * socket, updates the user information as long as the user has not
- * previously registered.
- * -If both the nickname data and user data have already been entered,
- * user is already registered, and ALREADYREGISTERED error is sent to client.
- * -Else, user data is inserted in userInfo struct. If nick data is already
- * present, info struct is updated and a new entry is inserted in userList
- * and RPL_WELCOME is sent to  client. If nick data is not present,
- * user data is updated in info struct.
+ * Given a username, a name, a userInfo struct, a global list of users,
+ * a client socket, and a client hostname, updates both local and global
+ * user information, provided that the user has not previously registered.
+ * Client responses:
+ * ERR_ALREADYREGISTERED if user is already registered.
+ * RPL_WELCOME if user data is entered for first time, but nickname
+ *   data is already stored.
  */
-void user(char * username, char * name, userInfo * info, list_t * userList, int cliSocket)
+void user(char * username, char * name, userInfo * info, list_t * userList, int cliSocket, char * cliHost)
 {
-        int maxUserLen = 10;
-        int maxNameLen = 51;
         int userOverflow = 0;
         int nameOverflow = 0;
         int userLen = strlen(username);
         int nameLen = strlen(name);
-        if (userLen >= maxUserLen)
+        if (userLen >= MAXUSER)
         {
-                userLen = maxUserLen;
+                userLen = MAXUSER;
                 userOverflow = 1;
         }
-        if (nameLen >= maxNameLen)
+        if (nameLen >= MAXNAME)
         {
-                nameLen = maxNameLen;
+                nameLen = MAXNAME;
                 nameOverflow = 1;
         }
+	// if both nickname and user data present, user is already registered
         if ((info->username[0]) && (info->nickname[0]))
         {
-                send_response(cliSocket, ERR_ALREADYREGISTRED, info);
+                send_response(cliSocket, cliHost, ERR_ALREADYREGISTRED, info);
         }
+	// stores username and name locally
         else
         {
-                memset(info->username, 0, maxUserLen);
-                memset(info->name, 0, maxNameLen);
+                memset(info->username, 0, MAXUSER);
+                memset(info->name, 0, MAXNAME);
                 int nameOffset = 0; // Accounts for offset of colon
+		if (name[0] == ':')
+			nameOffset = 1;
                 for (int i=0; i<userLen; i++)
                 {
                         info->username[i] = username[i];
                 }
                 if (userOverflow)
                         info->username[userLen-1] = '\0';
-                if (name[0] == ':')
-                        nameOffset = 1;
                 for (int i=0; i<nameLen; i++)
                 {
-                        info->name[i] = name[i+nameOffset]; // Do not include ':' in name
+                        info->name[i] = name[i+nameOffset];
                 }
                 if (nameOverflow)
                         info->name[nameLen-1] = '\0';
+		// stores user data globally if user has just registered
                 if (info->nickname[0])
                 {
                         list_append(userList, info);
                         // sort list
-                        send_response(cliSocket, RPL_WELCOME, info);
-                        send_response(cliSocket, RPL_YOURHOST, info);
-                        send_response(cliSocket, RPL_CREATED, info);
-                        send_response(cliSocket, RPL_MYINFO, info);
+                        send_response(cliSocket, cliHost, RPL_WELCOME, info);
+                        send_response(cliSocket, cliHost, RPL_YOURHOST, info);
+                        send_response(cliSocket, cliHost, RPL_CREATED, info);
+                        send_response(cliSocket, cliHost, RPL_MYINFO, info);
                 }
         }
 }
 
 
 /* nick:
- * Given a nickname, a userInfo struct, a userList, and a socket,
- * modifies a user's nickname and updates the userList accordingly.
- * -If user data has not yet been entered, userInfo struct is
- * updated, but userList entry is not added.
- * -If user data has been enetered,
- * and nick is being entered for the first time, updates userInfo struct and
- * inserts new entry into userList and sends RPL_WELCOME to client.
- * -If both nick and user data have already
- * been entered, updates the userInfo struct and updates the userList entry.
- * (DOES NOT DO THIS UPDATE YET.)
+ * Given a nickname, a userInfo struct, a global list of users, a socket,
+ * and a client hostname, locally and globally stores a user's nickname.
+ * Client responses:
+ * RPL_WELCOME if nick data is entered for first time, but user data
+ *  is already stored.
  */
-void nick(char * nickname, userInfo * info, list_t * userList, int cliSocket)
+void nick(char * nickname, userInfo * info, list_t * userList, int cliSocket, char * cliHost)
 {
-        int maxNickLen = 10;
         int nickLen = strlen(nickname);
         int nickOverflow = 0;
-        if (nickLen >= maxNickLen)
+	int isFirstNick = 0;
+        if (nickLen >= MAXNICK)
         {
-                nickLen = maxNickLen;
+                nickLen = MAXNICK;
                 nickOverflow = 1;
         }
-        int isFirstNick = 0;
-
         if (!(info->nickname[0]))
                 isFirstNick = 1;
-        memset(info->nickname, 0, maxNickLen);
+        memset(info->nickname, 0, MAXNICK);
+	// locally stores nickname
         for (int i=0; i<nickLen; i++)
         {
                 info->nickname[i] = nickname[i];
@@ -174,18 +163,19 @@ void nick(char * nickname, userInfo * info, list_t * userList, int cliSocket)
         if (nickOverflow)
                 info->nickname[nickLen-1] = '\0';
 
+	// globally stores user data if user has just registered
         if ((isFirstNick) && (info->username[0]))
         {
                 list_append(userList, info);
                 // now, sort the list based on nick
-                send_response(cliSocket, RPL_WELCOME, info);
-                send_response(cliSocket, RPL_YOURHOST, info);
-                send_response(cliSocket, RPL_CREATED, info);
-                send_response(cliSocket, RPL_MYINFO, info);
+                send_response(cliSocket, cliHost, RPL_WELCOME, info);
+                send_response(cliSocket, cliHost, RPL_YOURHOST, info);
+                send_response(cliSocket, cliHost, RPL_CREATED, info);
+                send_response(cliSocket, cliHost, RPL_MYINFO, info);
         }
+	// globally updates nickname if user is already registered
         else if (!(isFirstNick))
         {
                 printf("SimCList should be updated\n");
-                // Later, update list
         }
 }

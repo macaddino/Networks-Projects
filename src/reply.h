@@ -2,12 +2,14 @@
  *
  *  CMSC 23300 / 33300 - Networks and Distributed Systems
  *
- *  Reply codes
+ *  Reply codes and functions
  *
  */
 
 #ifndef REPLY_H_
 #define REPLY_H_
+
+#include "structures.h"
 
 #define RPL_WELCOME 	"001"
 #define RPL_YOURHOST 	"002"
@@ -73,5 +75,8 @@
 #define RPL_MYINFO_MSG		":%s %s %s %s"
 #define ERR_UNKNOWNCOMMAND_MSG  ":Unknown command"
 #define ERR_ALREADYREGISTERED_MSG ":Unauthorized command (already registered)"
+
+
+int send_response(int clientSocket, char * clientHost, char * response, userInfo * info);
 
 #endif /* REPLY_H_ */

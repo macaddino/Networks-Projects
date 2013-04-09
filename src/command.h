@@ -18,8 +18,8 @@
 
 void command_init(char ** commands);
 int command_search(char *command, char **comList);
-int run_command(int command, char ** argList, int argNum, userInfo * info, list_t * userList, int cliSocket);
-void user(char * username, char * name, userInfo * info, list_t * userList, int cliSocket);
-void nick(char * nickname, userInfo * info, list_t * userList, int cliSocket);
+int run_command(int command, char ** argList, int argNum, userInfo * info, list_t * userList, int cliSocket, char * clientHost);
+void user(char * username, char * name, userInfo * info, list_t * userList, int cliSocket, char * clientHost);
+void nick(char * nickname, userInfo * info, list_t * userList, int cliSocket, char * clientHost);
 
 #endif /* COMMAND_H_ */

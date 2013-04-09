@@ -7,13 +7,12 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
 
 
 /* parser:
- * Given an array containing a command, its number of bytes,
- * and an empty 2D char array, fills the 2D char array with
+ * Given a command string, its number of bytes,
+ * and an empty array of strings, fills the string array with
  * each individual word in the command and returns the
  * number of words in the command.
  */
@@ -25,6 +24,7 @@ int parser(char *input,  int nbytes, char **argList)
         int n;
         for (n=0; n<nbytes; n++)
         {
+		// all chars following a colon are stored as only one string
                 if (input[n]==':')
                 {
                         int argSize = nbytes-start_cpy;
@@ -34,6 +34,7 @@ int parser(char *input,  int nbytes, char **argList)
                         array_index++;
                         break;
                 }
+		// argument ends if followed by a space or if at end of input
                 if ((input[n] == ' ') || (n == nbytes-1))
                 {
                         int argSize = n-start_cpy;
@@ -51,8 +52,13 @@ int parser(char *input,  int nbytes, char **argList)
         return array_index;
 }
 
-
-int break_commands(char *input, int nbytes, char **argList)
+/* break_commands:
+ * Given a string of one or more commands, their total number
+ * of bytes, and an empty array of strings, stores each command
+ * which ends with "\r\n" as a separate string in string array.
+ * Returns the total number of parsed commands.
+ */
+int break_commands(char *input, int nbytes, char **cmndList)
 {
         int array_index=0;
         int start_cpy=0;
@@ -61,9 +67,9 @@ int break_commands(char *input, int nbytes, char **argList)
         {
                 if ((input[n] == '\n') && (n>0) && (input[n-1] == '\r'))
                 {
-                        int argSize = n-start_cpy;
-                        argList[array_index] = (char *) malloc(argSize);
-                        memcpy(argList[array_index], input+start_cpy, argSize);
+                        int cmndSize = n-start_cpy;
+                        cmndList[array_index] = (char *) malloc(cmndSize);
+                        memcpy(cmndList[array_index], input+start_cpy, cmndSize);
                         array_index++;
                         start_cpy = n+1;
                 }

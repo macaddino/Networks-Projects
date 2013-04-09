@@ -2,7 +2,8 @@
  *
  *  CMSC 23300 / 33300 - Networks and Distributed Systems
  *
- *  Custom SimCList functions
+ * Aux Functions to create global lists maintained
+ * throughout a server runtime.
  *
  */
 

@@ -9,12 +9,15 @@
 #ifndef STRUCTURES_H_
 #define STRUCTURES_H_
 
+#define MAXNICK 10
+#define MAXUSER 10
+#define MAXNAME 51
 
 struct userInfo
 {
-        char nickname[9];
-        char username[9];
-        char name[50];
+        char nickname[MAXNICK];
+        char username[MAXUSER];
+        char name[MAXNAME];
 };
 
 typedef struct userInfo userInfo;
