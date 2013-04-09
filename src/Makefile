@@ -1,4 +1,4 @@
-OBJS = main.o simclist.o
+OBJS = main.o command.o listfxns.o parser.o response.o simclist.o
 DEPS = $(OBJS:.o=.d)
 CC = gcc
 CFLAGS = -I../../include -g3 -Wall -fpic -std=gnu99 -MMD -MP -DDEBUG

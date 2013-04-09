@@ -67,7 +67,10 @@
 #define ERR_UMODEUNKNOWNFLAG	"501"
 #define ERR_USERSDONTMATCH		"502"
 
-#define RPL_WELCOME_MSG		":Welcome to the Internet Relay Network"
+#define RPL_WELCOME_MSG		":Welcome to the Internet Relay Network %s!%s@%s"
+#define RPL_YOURHOST_MSG	":Your host is %s, running version %s"
+#define RPL_CREATED_MSG		":This server was created %s"
+#define RPL_MYINFO_MSG		":%s %s %s %s"
 #define ERR_UNKNOWNCOMMAND_MSG  ":Unknown command"
 #define ERR_ALREADYREGISTERED_MSG ":Unauthorized command (already registered)"
 
