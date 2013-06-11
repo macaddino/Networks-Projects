@@ -8,4 +8,3 @@ Project 1 and 2 specs can be found here:
 https://github.com/uchicago-cs/cmsc23300/wiki
 Note that project 3 cannot run unless properly configured ala the following instructions:
 https://github.com/mininet/mininet/wiki/Simple-Router
-=====================
