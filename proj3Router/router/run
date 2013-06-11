@@ -1,0 +1,280 @@
+Script started on Sun 02 Jun 2013 09:27:02 PM UTC
+ubuntu@ip-10-246-22-197:~/cs144_lab3/router$ ./sr 
+Using VNS sr stub code revised 2009-10-14 (rev 0.20)
+Loading routing table from server, clear local routing table.
+Loading routing table
+---------------------------------------------
+Destination	Gateway		Mask	Iface
+10.0.1.100		10.0.1.100	255.255.255.255	eth3
+192.168.2.2		192.168.2.2	255.255.255.255	eth1
+172.64.3.10		172.64.3.10	255.255.255.255	eth2
+---------------------------------------------
+Client ubuntu connecting to Server localhost:8888
+Requesting topology 0
+successfully authenticated as ubuntu
+Loading routing table from server, clear local routing table.
+Loading routing table
+---------------------------------------------
+Destination	Gateway		Mask	Iface
+10.0.1.100		10.0.1.100	255.255.255.255	eth3
+192.168.2.2		192.168.2.2	255.255.255.255	eth1
+172.64.3.10		172.64.3.10	255.255.255.255	eth2
+---------------------------------------------
+Router interfaces:
+eth3	HWaddr7e:23:f5:2c:22:ef
+	inet addr 10.0.1.1
+eth2	HWaddrda:45:5e:10:91:71
+	inet addr 172.64.3.1
+eth1	HWaddrc2:09:ee:a3:70:72
+	inet addr 192.168.2.1
+ <-- Ready to process packets --> 
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REQUEST
+Our iface IP:
+10.0.1.1
+Our iface name: eth3
+Their dest IP:
+10.0.1.1
+Their source IP:
+10.0.1.100
+REQUEST FOR OUR MAC ADDY FOUND
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+SENDING TO IP ADDR 10.0.1.100
+FROM 10.0.1.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REQUEST
+Our iface IP:
+10.0.1.1
+Our iface name: eth3
+Their dest IP:
+10.0.1.1
+Their source IP:
+10.0.1.100
+REQUEST FOR OUR MAC ADDY FOUND
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+SENDING TO IP ADDR 10.0.1.100
+FROM 10.0.1.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REQUEST
+Our iface IP:
+10.0.1.1
+Our iface name: eth3
+Their dest IP:
+10.0.1.1
+Their source IP:
+10.0.1.100
+REQUEST FOR OUR MAC ADDY FOUND
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+SENDING TO IP ADDR 10.0.1.100
+FROM 10.0.1.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REQUEST
+Our iface IP:
+10.0.1.1
+Our iface name: eth3
+Their dest IP:
+10.0.1.1
+Their source IP:
+10.0.1.100
+REQUEST FOR OUR MAC ADDY FOUND
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+SENDING TO IP ADDR 10.0.1.100
+FROM 10.0.1.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REQUEST
+Our iface IP:
+10.0.1.1
+Our iface name: eth3
+Their dest IP:
+10.0.1.1
+Their source IP:
+10.0.1.100
+REQUEST FOR OUR MAC ADDY FOUND
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+SENDING TO IP ADDR 10.0.1.100
+FROM 10.0.1.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REQUEST
+Our iface IP:
+10.0.1.1
+Our iface name: eth3
+Their dest IP:
+10.0.1.1
+Their source IP:
+10.0.1.100
+REQUEST FOR OUR MAC ADDY FOUND
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+SENDING TO IP ADDR 10.0.1.100
+FROM 10.0.1.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REQUEST
+Our iface IP:
+10.0.1.1
+Our iface name: eth3
+Their dest IP:
+10.0.1.1
+Their source IP:
+10.0.1.100
+REQUEST FOR OUR MAC ADDY FOUND
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+SENDING TO IP ADDR 10.0.1.100
+FROM 10.0.1.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REQUEST
+Our iface IP:
+10.0.1.1
+Our iface name: eth3
+Their dest IP:
+10.0.1.1
+Their source IP:
+10.0.1.100
+REQUEST FOR OUR MAC ADDY FOUND
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+SENDING TO IP ADDR 10.0.1.100
+FROM 10.0.1.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REQUEST
+Our iface IP:
+10.0.1.1
+Our iface name: eth3
+Their dest IP:
+10.0.1.1
+Their source IP:
+10.0.1.100
+REQUEST FOR OUR MAC ADDY FOUND
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+SENDING TO IP ADDR 10.0.1.100
+FROM 10.0.1.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REQUEST
+Our iface IP:
+10.0.1.1
+Our iface name: eth3
+Their dest IP:
+10.0.1.1
+Their source IP:
+10.0.1.100
+REQUEST FOR OUR MAC ADDY FOUND
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+SENDING TO IP ADDR 10.0.1.100
+FROM 10.0.1.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REQUEST
+Our iface IP:
+10.0.1.1
+Our iface name: eth3
+Their dest IP:
+10.0.1.1
+Their source IP:
+10.0.1.100
+REQUEST FOR OUR MAC ADDY FOUND
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+SENDING TO IP ADDR 10.0.1.100
+FROM 10.0.1.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REQUEST
+Our iface IP:
+10.0.1.1
+Our iface name: eth3
+Their dest IP:
+10.0.1.1
+Their source IP:
+10.0.1.100
+REQUEST FOR OUR MAC ADDY FOUND
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+SENDING TO IP ADDR 10.0.1.100
+FROM 10.0.1.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REQUEST
+Our iface IP:
+10.0.1.1
+Our iface name: eth3
+Their dest IP:
+10.0.1.1
+Their source IP:
+10.0.1.100
+REQUEST FOR OUR MAC ADDY FOUND
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+SENDING TO IP ADDR 10.0.1.100
+FROM 10.0.1.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REQUEST
+Our iface IP:
+10.0.1.1
+Our iface name: eth3
+Their dest IP:
+10.0.1.1
+Their source IP:
+10.0.1.100
+REQUEST FOR OUR MAC ADDY FOUND
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+SENDING TO IP ADDR 10.0.1.100
+FROM 10.0.1.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REQUEST
+Our iface IP:
+10.0.1.1
+Our iface name: eth3
+Their dest IP:
+10.0.1.1
+Their source IP:
+10.0.1.100
+REQUEST FOR OUR MAC ADDY FOUND
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+SENDING TO IP ADDR 10.0.1.100
+FROM 10.0.1.1
+^C
+ubuntu@ip-10-246-22-197:~/cs144_lab3/router$ ^C
+ubuntu@ip-10-246-22-197:~/cs144_lab3/router$ ls
+auth_key      [0m[01;32mping.sh[0m  sha1.h         sr_arpcache.h  sr_dumper.o  sr_main.c      sr_router.h  sr_rt.o     sr_vns_comm.c
+INSTRUCTIONS  rtable   sha1.o         sr_arpcache.o  sr_if.c      sr_main.o      sr_router.o  sr_utils.c  sr_vns_comm.o
+ip            run      [01;32msr[0m             sr_dumper.c    sr_if.h      sr_protocol.h  sr_rt.c      sr_utils.h  [01;32mtraceroute.sh[0m
+Makefile      sha1.c   sr_arpcache.c  sr_dumper.h    sr_if.o      sr_router.c    sr_rt.h      sr_utils.o  vnscommand.h
+ubuntu@ip-10-246-22-197:~/cs144_lab3/router$ exit
+
+Script done on Sun 02 Jun 2013 09:27:29 PM UTC

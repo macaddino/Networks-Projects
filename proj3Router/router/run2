@@ -1,0 +1,169 @@
+Script started on Sun 02 Jun 2013 10:26:43 PM UTC
+ubuntu@ip-10-246-22-197:~/cs144_lab3/router$ ./sr 
+Using VNS sr stub code revised 2009-10-14 (rev 0.20)
+Loading routing table from server, clear local routing table.
+Loading routing table
+---------------------------------------------
+Destination	Gateway		Mask	Iface
+10.0.1.100		10.0.1.100	255.255.255.255	eth3
+192.168.2.2		192.168.2.2	255.255.255.255	eth1
+172.64.3.10		172.64.3.10	255.255.255.255	eth2
+---------------------------------------------
+Client ubuntu connecting to Server localhost:8888
+Requesting topology 0
+successfully authenticated as ubuntu
+Loading routing table from server, clear local routing table.
+Loading routing table
+---------------------------------------------
+Destination	Gateway		Mask	Iface
+10.0.1.100		10.0.1.100	255.255.255.255	eth3
+192.168.2.2		192.168.2.2	255.255.255.255	eth1
+172.64.3.10		172.64.3.10	255.255.255.255	eth2
+---------------------------------------------
+Router interfaces:
+eth3	HWaddr7e:23:f5:2c:22:ef
+	inet addr 10.0.1.1
+eth2	HWaddrda:45:5e:10:91:71
+	inet addr 172.64.3.1
+eth1	HWaddrc2:09:ee:a3:70:72
+	inet addr 192.168.2.1
+ <-- Ready to process packets --> 
+0 eth3	HWaddr7e:23:f5:2c:22:ef
+	inet addr 10.0.1.1
+eth2	HWaddrda:45:5e:10:91:71
+	inet addr 172.64.3.1
+eth1	HWaddrc2:09:ee:a3:70:72
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+
+
+Printing ARP Packet Contents
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 1
+	sender hardware address: E2:8F:57:06:74:98
+	sender ip address: 10.0.1.100
+	target hardware address: 00:00:00:00:00:00
+	target ip address: 10.0.1.1
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REQUEST
+Our iface IP:
+10.0.1.1
+Our iface name: eth3
+Their dest IP:
+10.0.1.1
+Their source IP:
+10.0.1.100
+REQUEST FOR OUR MAC ADDY FOUND
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+SENDING TO IP ADDR 10.0.1.100
+FROM 10.0.1.1
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 512
+	sender hardware address: 7E:23:F5:2C:22:EF
+	sender ip address: 10.0.1.1
+	target hardware address: E2:8F:57:06:74:98
+	target ip address: 10.0.1.100
+eth3	HWaddr7e:23:f5:2c:22:ef
+	inet addr 10.0.1.1
+eth2	HWaddrda:45:5e:10:91:71
+	inet addr 172.64.3.1
+eth1	HWaddrc2:09:ee:a3:70:72
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+
+
+Printing ARP Packet Contents
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 1
+	sender hardware address: E2:8F:57:06:74:98
+	sender ip address: 10.0.1.100
+	target hardware address: 00:00:00:00:00:00
+	target ip address: 10.0.1.1
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REQUEST
+Our iface IP:
+10.0.1.1
+Our iface name: eth3
+Their dest IP:
+10.0.1.1
+Their source IP:
+10.0.1.100
+REQUEST FOR OUR MAC ADDY FOUND
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+SENDING TO IP ADDR 10.0.1.100
+FROM 10.0.1.1
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 512
+	sender hardware address: 7E:23:F5:2C:22:EF
+	sender ip address: 10.0.1.1
+	target hardware address: E2:8F:57:06:74:98
+	target ip address: 10.0.1.100
+eth3	HWaddr7e:23:f5:2c:22:ef
+	inet addr 10.0.1.1
+eth2	HWaddrda:45:5e:10:91:71
+	inet addr 172.64.3.1
+eth1	HWaddrc2:09:ee:a3:70:72
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+
+
+Printing ARP Packet Contents
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 1
+	sender hardware address: E2:8F:57:06:74:98
+	sender ip address: 10.0.1.100
+	target hardware address: 00:00:00:00:00:00
+	target ip address: 10.0.1.1
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REQUEST
+Our iface IP:
+10.0.1.1
+Our iface name: eth3
+Their dest IP:
+10.0.1.1
+Their source IP:
+10.0.1.100
+REQUEST FOR OUR MAC ADDY FOUND
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+SENDING TO IP ADDR 10.0.1.100
+FROM 10.0.1.1
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 512
+	sender hardware address: 7E:23:F5:2C:22:EF
+	sender ip address: 10.0.1.1
+	target hardware address: E2:8F:57:06:74:98
+	target ip address: 10.0.1.100
+^C
+ubuntu@ip-10-246-22-197:~/cs144_lab3/router$ vi[K[Kexit
+
+Script done on Sun 02 Jun 2013 10:27:02 PM UTC

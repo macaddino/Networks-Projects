@@ -1,0 +1,2462 @@
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32885
+	fragment offset: 0
+	TTL: 1
+	protocol: 17
+	checksum: 11883
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: 8E:F3:30:12:C4:30
+	source: F2:F3:66:F0:BD:0D
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 24
+	id: 32885
+	fragment offset: 0
+	TTL: 64
+	protocol: 1
+	checksum: 3044
+	source: 10.0.1.1
+	destination: 10.0.1.100
+ICMP header:
+	type: 11
+	code: 0
+	checksum: 65524
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32886
+	fragment offset: 0
+	TTL: 1
+	protocol: 17
+	checksum: 11627
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: 8E:F3:30:12:C4:30
+	source: F2:F3:66:F0:BD:0D
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 24
+	id: 32886
+	fragment offset: 0
+	TTL: 64
+	protocol: 1
+	checksum: 2788
+	source: 10.0.1.1
+	destination: 10.0.1.100
+ICMP header:
+	type: 11
+	code: 0
+	checksum: 65524
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32887
+	fragment offset: 0
+	TTL: 1
+	protocol: 17
+	checksum: 11371
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: 8E:F3:30:12:C4:30
+	source: F2:F3:66:F0:BD:0D
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 24
+	id: 32887
+	fragment offset: 0
+	TTL: 64
+	protocol: 1
+	checksum: 2532
+	source: 10.0.1.1
+	destination: 10.0.1.100
+ICMP header:
+	type: 11
+	code: 0
+	checksum: 65524
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32888
+	fragment offset: 0
+	TTL: 2
+	protocol: 17
+	checksum: 11114
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32889
+	fragment offset: 0
+	TTL: 2
+	protocol: 17
+	checksum: 10858
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32890
+	fragment offset: 0
+	TTL: 2
+	protocol: 17
+	checksum: 10602
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32891
+	fragment offset: 0
+	TTL: 3
+	protocol: 17
+	checksum: 10345
+	source: 10.0.1.100
+	destination: 192.168.2.2
+Using VNS sr stub code revised 2009-10-14 (rev 0.20)
+Loading routing table from server, clear local routing table.
+Loading routing table
+---------------------------------------------
+Destination	Gateway		Mask	Iface
+10.0.1.100		10.0.1.100	255.255.255.255	eth3
+192.168.2.2		192.168.2.2	255.255.255.255	eth1
+172.64.3.10		172.64.3.10	255.255.255.255	eth2
+---------------------------------------------
+Client ubuntu connecting to Server localhost:8888
+Requesting topology 0
+successfully authenticated as ubuntu
+Loading routing table from server, clear local routing table.
+Loading routing table
+---------------------------------------------
+Destination	Gateway		Mask	Iface
+10.0.1.100		10.0.1.100	255.255.255.255	eth3
+192.168.2.2		192.168.2.2	255.255.255.255	eth1
+172.64.3.10		172.64.3.10	255.255.255.255	eth2
+---------------------------------------------
+Router interfaces:
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+ <-- Ready to process packets --> 
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 11883
+PACKET'S CHECKSUM NETWORK 11883
+TTL WILL BE ZERO
+SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 11627
+PACKET'S CHECKSUM NETWORK 11627
+TTL WILL BE ZERO
+SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 11371
+PACKET'S CHECKSUM NETWORK 11371
+TTL WILL BE ZERO
+SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 11114
+PACKET'S CHECKSUM NETWORK 11114
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+NOT IN ARP CACHE; SEND ARP REQUEST FOR THE NEXT-HOP IP
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 10858
+PACKET'S CHECKSUM NETWORK 10858
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+NOT IN ARP CACHE; SEND ARP REQUEST FOR THE NEXT-HOP IP
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 10602
+PACKET'S CHECKSUM NETWORK 10602
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+NOT IN ARP CACHE; SEND ARP REQUEST FOR THE NEXT-HOP IP
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHEETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32892
+	fragment offset: 0
+	TTL: 3
+	protocol: 17
+	checksum: 10089
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32893
+	fragment offset: 0
+	TTL: 3
+	protocol: 17
+	checksum: 9833
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32894
+	fragment offset: 0
+	TTL: 4
+	protocol: 17
+	checksum: 9576
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32895
+	fragment offset: 0
+	TTL: 4
+	protocol: 17
+	checksum: 9320
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32896
+	fragment offset: 0
+	TTL: 4
+	protocol: 17
+	checksum: 9064
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32897
+	fragment offset: 0
+	TTL: 5
+	protocol: 17
+	checksum: 8807
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32898
+	fragment offset: 0
+	TTL: 5
+	protocol: 17
+	checksum: 8551
+	source: 10.0.1.100
+	destination: 192.168.2.2
+CKSUM NETWORK 10345
+PACKET'S CHECKSUM NETWORK 10345
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+NOT IN ARP CACHE; SEND ARP REQUEST FOR THE NEXT-HOP IP
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 10089
+PACKET'S CHECKSUM NETWORK 10089
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+NOT IN ARP CACHE; SEND ARP REQUEST FOR THE NEXT-HOP IP
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 9833
+PACKET'S CHECKSUM NETWORK 9833
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+NOT IN ARP CACHE; SEND ARP REQUEST FOR THE NEXT-HOP IP
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 9576
+PACKET'S CHECKSUM NETWORK 9576
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+NOT IN ARP CACHE; SEND ARP REQUEST FOR THE NEXT-HOP IP
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 9320
+PACKET'S CHECKSUM NETWORK 9320
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+NOT IN ARP CACHE; SEND ARP REQUEST FOR THE NEXT-HOP IP
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 9064
+PACKET'S CHECKSUM NETWORK 9064
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+NOT IN ARP CACHE; SEND ARP REQUEST FOR THE NEXT-HOP IP
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 8807
+PACKET'S CHECKSUM NETWORK 8807
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+NOT IN ARP CACHE; SEND ARP REQUEST FOR THE NEXT-HOP IP
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 8551
+PACKET'S CHECKSUM NETWORK 8551
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32899
+	fragment offset: 0
+	TTL: 5
+	protocol: 17
+	checksum: 8295
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32900
+	fragment offset: 0
+	TTL: 6
+	protocol: 17
+	checksum: 8038
+	source: 10.0.1.100
+	destination: 192.168.2.2
+
+
+Printing ARP Packet SEND Contents
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 1
+	sender hardware address: F2:F3:66:F0:BD:0D
+	sender ip address: 10.0.1.1
+	target hardware address: FF:FF:FF:FF:FF:FF
+	target ip address: 192.168.2.2
+
+
+Printing ARP Packet SEND Contents
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 1
+	sender hardware address: 92:D8:5C:95:42:62
+	sender ip address: 172.64.3.1
+	target hardware address: FF:FF:FF:FF:FF:FF
+	target ip address: 192.168.2.2
+
+
+Printing ARP Packet SEND Contents
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 1
+	sender hardware address: C6:66:8D:9B:C8:ED
+	sender ip address: 192.168.2.1
+	target hardware address: FF:FF:FF:FF:FF:FF
+	target ip address: 192.168.2.2
+
+
+Printing ARP Packet Contents
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 2
+	sender hardware address: 1A:6B:B3:97:96:65
+	sender ip address: 192.168.2.2
+	target hardware address: C6:66:8D:9B:C8:ED
+	target ip address: 192.168.2.1
+C6:66:8D:9B:C8:ED
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32900
+	fragment offset: 0
+	TTL: 5
+	protocol: 17
+	checksum: 8039
+	source: 10.0.1.100
+	destination: 192.168.2.2
+C6:66:8D:9B:C8:ED
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32899
+	fragment offset: 0
+	TTL: 4
+	protocol: 17
+	checksum: 8296
+	source: 10.0.1.100
+	destination: 192.168.2.2
+C6:66:8D:9B:C8:ED
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32898
+	fragment offset: 0
+	TTL: 4
+	protocol: 17
+	checksum: 8552
+	source: 10.0.1.100
+	destination: 192.168.2.2
+C6:66:8D:9B:C8:ED
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32897
+	fragment offset: 0
+	TTL: 4
+	protocol: 17
+	checksum: 8808
+	source: 10.0.1.100
+	destination: 192.168.2.2
+C6:66:8D:9B:C8:ED
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32896
+	fragment offset: 0
+	TTL: 3
+	protocol: 17
+	checksum: 9065
+	source: 10.0.1.100
+	destination: 192.168.2.2
+C6:66:8D:9B:C8:ED
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32895
+	fragment offset: 0
+	TTL: 3
+	protocol: 17
+	checksum: 9321
+	source: 10.0.1.100
+	destination: 192.168.2.2
+C6:66:8D:9B:C8:ED
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32894
+	fragment offset: 0
+	TTL: 3
+	protocol: 17
+	checksum: 9577
+	source: 10.0.1.100
+	destination: 192.168.2.2
+C6:66:8D:9B:C8:ED
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32893
+	fragment offset: 0
+	TTL: 2
+	protocol: 17
+	checksum: 9834
+	source: 10.0.1.100
+	destination: 192.168.2.2
+C6:66:8D:9B:C8:ED
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32892
+	fragment offset: 0
+	TTL: 2
+	protocol: 17
+	checksum: 10090
+	source: 10.0.1.100
+	destination: 192.168.2.2
+C6:66:8D:9B:C8:ED
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32891
+	fragment offset: 0
+	TTL: 2
+	protocol: 17
+	checksum: 10346
+	source: 10.0.1.100
+	destination: 192.168.2.2
+C6:66:8D:9B:C8:ED
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32890
+	fragment offset: 0
+	TTL: 1
+	protocol: 17
+	checksum: 10603
+	source: 10.0.1.100
+	destination: 192.168.2.2
+C6:66:8D:9B:C8:ED
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32889
+	fragment offset: 0
+	TTL: 1
+	protocol: 17
+	checksum: 10859
+	source: 10.0.1.100
+	destination: 192.168.2.2
+C6:66:8D:9B:C8:ED
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32888
+	fragment offset: 0
+	TTL: 1
+	protocol: 17
+	checksum: 11115
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: C6:66:8D:9B:C8:ED
+	source: 1A:6B:B3:97:96:65
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33186
+	fragment offset: 0
+	TTL: 64
+	protocol: 1
+	checksum: 13610
+	source: 192.168.2.2
+	destination: 10.0.1.100
+ETHERNET header:
+	destination: C6:66:8D:9B:C8:ED
+	source: 1A:6B:B3:97:96:65
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33187
+	fragment offset: 0
+	TTL: 64
+	protocol: 1
+	checksum: 13354
+	source: 192.168.2.2
+	destination: 10.0.1.100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+NOT IN ARP CACHE; SEND ARP REQUEST FOR THE NEXT-HOP IP
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 8295
+PACKET'S CHECKSUM NETWORK 8295
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+NOT IN ARP CACHE; SEND ARP REQUEST FOR THE NEXT-HOP IP
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 8038
+PACKET'S CHECKSUM NETWORK 8038
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+NOT IN ARP CACHE; SEND ARP REQUEST FOR THE NEXT-HOP IP
+ENTERING HANDLE_ARPREQ
+DIFFTIME IS OVER 1
+SENDING ARP PACKET
+SENDING ARP PACKET
+SENDING ARP PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth1
+*** -> Received packet of length 42 
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REPLY
+PROVIDED IFACE IP: 192.168.2.1
+PROVIDED IFACE MAC ADDR: WE ARE SENDING OUT IP PACKET
+PROVIDED IFACE IP: 192.168.2.1
+PROVIDED IFACE MAC ADDR: WE ARE SENDING OUT IP PACKET
+PROVIDED IFACE IP: 192.168.2.1
+PROVIDED IFACE MAC ADDR: WE ARE SENDING OUT IP PACKET
+PROVIDED IFACE IP: 192.168.2.1
+PROVIDED IFACE MAC ADDR: WE ARE SENDING OUT IP PACKET
+PROVIDED IFACE IP: 192.168.2.1
+PROVIDED IFACE MAC ADDR: WE ARE SENDING OUT IP PACKET
+PROVIDED IFACE IP: 192.168.2.1
+PROVIDED IFACE MAC ADDR: WE ARE SENDING OUT IP PACKET
+PROVIDED IFACE IP: 192.168.2.1
+PROVIDED IFACE MAC ADDR: WE ARE SENDING OUT IP PACKET
+PROVIDED IFACE IP: 192.168.2.1
+PROVIDED IFACE MAC ADDR: WE ARE SENDING OUT IP PACKET
+PROVIDED IFACE IP: 192.168.2.1
+PROVIDED IFACE MAC ADDR: WE ARE SENDING OUT IP PACKET
+PROVIDED IFACE IP: 192.168.2.1
+PROVIDED IFACE MAC ADDR: WE ARE SENDING OUT IP PACKET
+PROVIDED IFACE IP: 192.168.2.1
+PROVIDED IFACE MAC ADDR: WE ARE SENDING OUT IP PACKET
+PROVIDED IFACE IP: 192.168.2.1
+PROVIDED IFACE MAC ADDR: WE ARE SENDING OUT IP PACKET
+PROVIDED IFACE IP: 192.168.2.1
+PROVIDED IFACE MAC ADDR: WE ARE SENDING OUT IP PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth1
+*** -> Received packet of length 102 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 13610
+PACKET'S CHECKSUM NETWORK 13610
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 1
+THIS IS MASK & DESTIP: 0
+THIS IS MASK & DESTIP: 10
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+NOT IN ARP CACHE; SEND ARP REQUEST FOR THE NEXT-HOP IP
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth1
+*** -> Received packet of length 102 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 13354
+PACKET'S CHECKSUM NETWORK 13354
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 1
+THIS IS MASK & DESTIP: 0
+THIS IS MASK & DESTIP: 10
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+NOT IN ARP CACHE; SEND ARP REQUEST FOR THE NEXT-HOP IP
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addETHERNET header:
+	destination: C6:66:8D:9B:C8:ED
+	source: 1A:6B:B3:97:96:65
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33188
+	fragment offset: 0
+	TTL: 64
+	protocol: 1
+	checksum: 13098
+	source: 192.168.2.2
+	destination: 10.0.1.100
+ETHERNET header:
+	destination: C6:66:8D:9B:C8:ED
+	source: 1A:6B:B3:97:96:65
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33189
+	fragment offset: 0
+	TTL: 64
+	protocol: 1
+	checksum: 12842
+	source: 192.168.2.2
+	destination: 10.0.1.100
+ETHERNET header:
+	destination: C6:66:8D:9B:C8:ED
+	source: 1A:6B:B3:97:96:65
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33190
+	fragment offset: 0
+	TTL: 64
+	protocol: 1
+	checksum: 12586
+	source: 192.168.2.2
+	destination: 10.0.1.100
+ETHERNET header:
+	destination: C6:66:8D:9B:C8:ED
+	source: 1A:6B:B3:97:96:65
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33191
+	fragment offset: 0
+	TTL: 64
+	protocol: 1
+	checksum: 12330
+	source: 192.168.2.2
+	destination: 10.0.1.100
+
+
+Printing ARP Packet SEND Contents
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 1
+	sender hardware address: F2:F3:66:F0:BD:0D
+	sender ip address: 10.0.1.1
+	target hardware address: FF:FF:FF:FF:FF:FF
+	target ip address: 10.0.1.100
+
+
+Printing ARP Packet SEND Contents
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 1
+	sender hardware address: 92:D8:5C:95:42:62
+	sender ip address: 172.64.3.1
+	target hardware address: FF:FF:FF:FF:FF:FF
+	target ip address: 10.0.1.100
+
+
+Printing ARP Packet SEND Contents
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 1
+	sender hardware address: C6:66:8D:9B:C8:ED
+	sender ip address: 192.168.2.1
+	target hardware address: FF:FF:FF:FF:FF:FF
+	target ip address: 10.0.1.100
+
+
+Printing ARP Packet Contents
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 2
+	sender hardware address: 8E:F3:30:12:C4:30
+	sender ip address: 10.0.1.100
+	target hardware address: F2:F3:66:F0:BD:0D
+	target ip address: 10.0.1.1
+F2:F3:66:F0:BD:0D
+ETHERNET header:
+	destination: 8E:F3:30:12:C4:30
+	source: F2:F3:66:F0:BD:0D
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33191
+	fragment offset: 0
+	TTL: 63
+	protocol: 1
+	checksum: 12331
+	source: 192.168.2.2
+	destination: 10.0.1.100
+F2:F3:66:F0:BD:0D
+ETHERNET header:
+	destination: 8E:F3:30:12:C4:30
+	source: F2:F3:66:F0:BD:0D
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33190
+	fragment offset: 0
+	TTL: 63
+	protocol: 1
+	checksum: 12587
+	source: 192.168.2.2
+	destination: 10.0.1.100
+F2:F3:66:F0:BD:0D
+ETHERNET header:
+	destination: 8E:F3:30:12:C4:30
+	source: F2:F3:66:F0:BD:0D
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33189
+	fragment offset: 0
+	TTL: 63
+	protocol: 1
+	checksum: 12843
+	source: 192.168.2.2
+	destination: 10.0.1.100
+F2:F3:66:F0:BD:0D
+ETHERNET header:
+	destination: 8E:F3:30:12:C4:30
+	source: F2:F3:66:F0:BD:0D
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33188
+	fragment offset: 0
+	TTL: 63
+	protocol: 1
+	checksum: 13099
+	source: 192.168.2.2
+	destination: 10.0.1.100
+F2:F3:66:F0:BD:0D
+ETHERNET header:
+	destination: 8E:F3:30:12:C4:30
+	source: F2:F3:66:F0:BD:0D
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33187
+	fragment offset: 0
+	TTL: 63
+	protocol: 1
+	checksum: 13355
+	source: 192.168.2.2
+	destination: 10.0.1.100
+F2:F3:66:F0:BD:0D
+ETHERNET header:
+	destination: 8E:F3:30:12:C4:30
+	source: F2:F3:66:F0:BD:0D
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33186
+	fragment offset: 0
+	TTL: 63
+	protocol: 1
+	checksum: 13611
+	source: 192.168.2.2
+	destination: 10.0.1.100
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32901
+	fragment offset: 0
+	TTL: 1
+	protocol: 17
+	checksum: 7787
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: 8E:F3:30:12:C4:30
+	source: F2:F3:66:F0:BD:0D
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 24
+	id: 32901
+	fragment offset: 0
+	TTL: 64
+	protocol: 1
+	checksum: 64483
+	source: 10.0.1.1
+	destination: 10.0.1.100
+ICMP header:
+	type: 11
+	code: 0
+	checksum: 65524
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32902
+	fragment offset: 0
+	TTL: 1
+	protocol: 17
+	checksum: 7531
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: 8E:F3:30:12:C4:30
+	source: F2:F3:66:F0:BD:0D
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 24
+	id: 32902
+	fragment offset: 0
+	TTL: 64
+	protocol: 1
+	checksum: 64227
+	source: 10.0.1.1
+	destination: 10.0.1.100
+ICMP header:
+	type: 11
+	code: 0
+	checksum: 65524
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32903
+	fragment offset: 0
+	TTL: 1
+	protocol: 17
+	checksum: 7275
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: 8E:F3:30:12:C4:30
+	source: F2:F3:66:F0:BD:0D
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 24
+	id: 32903
+	fragment offset: 0
+	TTL: 64
+	protocol: 1
+	checksum: 63971
+	source: 10.0.1.1
+	destination: 10.0.1.100
+ICMP header:
+	type: 11
+	code: 0
+	checksum: 65524
+r 192.168.2.1
+THIS IS INTERFACE: eth1
+*** -> Received packet of length 102 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 13098
+PACKET'S CHECKSUM NETWORK 13098
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 1
+THIS IS MASK & DESTIP: 0
+THIS IS MASK & DESTIP: 10
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+NOT IN ARP CACHE; SEND ARP REQUEST FOR THE NEXT-HOP IP
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth1
+*** -> Received packet of length 102 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 12842
+PACKET'S CHECKSUM NETWORK 12842
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 1
+THIS IS MASK & DESTIP: 0
+THIS IS MASK & DESTIP: 10
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+NOT IN ARP CACHE; SEND ARP REQUEST FOR THE NEXT-HOP IP
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth1
+*** -> Received packet of length 102 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 12586
+PACKET'S CHECKSUM NETWORK 12586
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 1
+THIS IS MASK & DESTIP: 0
+THIS IS MASK & DESTIP: 10
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+NOT IN ARP CACHE; SEND ARP REQUEST FOR THE NEXT-HOP IP
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth1
+*** -> Received packet of length 102 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 12330
+PACKET'S CHECKSUM NETWORK 12330
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 1
+THIS IS MASK & DESTIP: 0
+THIS IS MASK & DESTIP: 10
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+NOT IN ARP CACHE; SEND ARP REQUEST FOR THE NEXT-HOP IP
+ENTERING HANDLE_ARPREQ
+DIFFTIME IS OVER 1
+SENDING ARP PACKET
+SENDING ARP PACKET
+SENDING ARP PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REPLY
+PROVIDED IFACE IP: 10.0.1.1
+PROVIDED IFACE MAC ADDR: WE ARE SENDING OUT IP PACKET
+PROVIDED IFACE IP: 10.0.1.1
+PROVIDED IFACE MAC ADDR: WE ARE SENDING OUT IP PACKET
+PROVIDED IFACE IP: 10.0.1.1
+PROVIDED IFACE MAC ADDR: WE ARE SENDING OUT IP PACKET
+PROVIDED IFACE IP: 10.0.1.1
+PROVIDED IFACE MAC ADDR: WE ARE SENDING OUT IP PACKET
+PROVIDED IFACE IP: 10.0.1.1
+PROVIDED IFACE MAC ADDR: WE ARE SENDING OUT IP PACKET
+PROVIDED IFACE IP: 10.0.1.1
+PROVIDED IFACE MAC ADDR: WE ARE SENDING OUT IP PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 7787
+PACKET'S CHECKSUM NETWORK 7787
+TTL WILL BE ZERO
+SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 7531
+PACKET'S CHECKSUM NETWORK 7531
+TTL WILL BE ZERO
+SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 7275
+PACKET'S CHECKSUM NETWORK 7275
+TTL WILL BE ZERO
+SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 1ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32904
+	fragment offset: 0
+	TTL: 2
+	protocol: 17
+	checksum: 7018
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32904
+	fragment offset: 0
+	TTL: 1
+	protocol: 17
+	checksum: 7019
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32905
+	fragment offset: 0
+	TTL: 2
+	protocol: 17
+	checksum: 6762
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32905
+	fragment offset: 0
+	TTL: 1
+	protocol: 17
+	checksum: 6763
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32906
+	fragment offset: 0
+	TTL: 2
+	protocol: 17
+	checksum: 6506
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32906
+	fragment offset: 0
+	TTL: 1
+	protocol: 17
+	checksum: 6507
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32907
+	fragment offset: 0
+	TTL: 3
+	protocol: 17
+	checksum: 6249
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32907
+	fragment offset: 0
+	TTL: 2
+	protocol: 17
+	checksum: 6250
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32908
+	fragment offset: 0
+	TTL: 3
+	protocol: 17
+	checksum: 5993
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32908
+	fragment offset: 0
+	TTL: 2
+	protocol: 17
+	checksum: 5994
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32909
+	fragment offset: 0
+	TTL: 3
+	protocol: 17
+	checksum: 5737
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32909
+	fragment offset: 0
+	TTL: 2
+	protocol: 17
+	checksum: 5738
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32910
+	fragment offset: 0
+	TTL: 4
+	protocol: 17
+	checksum: 5480
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32910
+	fragment offset: 0
+	TTL: 3
+	protocol: 17
+	checksum: 5481
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32911
+	fragment offset: 0
+	TTL: 4
+	protocol: 17
+	checksum: 5224
+	source: 10.0.1.100
+	destination: 192.168.2.2
+0.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 7018
+PACKET'S CHECKSUM NETWORK 7018
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+FOUND IN ARP CACHE; SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 6762
+PACKET'S CHECKSUM NETWORK 6762
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+FOUND IN ARP CACHE; SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 6506
+PACKET'S CHECKSUM NETWORK 6506
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+FOUND IN ARP CACHE; SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 6249
+PACKET'S CHECKSUM NETWORK 6249
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+FOUND IN ARP CACHE; SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 5993
+PACKET'S CHECKSUM NETWORK 5993
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+FOUND IN ARP CACHE; SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 5737
+PACKET'S CHECKSUM NETWORK 5737
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+FOUND IN ARP CACHE; SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 5480
+PACKET'S CHECKSUM NETWORK 5480
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+FOUND IN ARP CACHE; SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 5224
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32911
+	fragment offset: 0
+	TTL: 3
+	protocol: 17
+	checksum: 5225
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32912
+	fragment offset: 0
+	TTL: 4
+	protocol: 17
+	checksum: 4968
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32912
+	fragment offset: 0
+	TTL: 3
+	protocol: 17
+	checksum: 4969
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32913
+	fragment offset: 0
+	TTL: 5
+	protocol: 17
+	checksum: 4711
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32913
+	fragment offset: 0
+	TTL: 4
+	protocol: 17
+	checksum: 4712
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32914
+	fragment offset: 0
+	TTL: 5
+	protocol: 17
+	checksum: 4455
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32914
+	fragment offset: 0
+	TTL: 4
+	protocol: 17
+	checksum: 4456
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32915
+	fragment offset: 0
+	TTL: 5
+	protocol: 17
+	checksum: 4199
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32915
+	fragment offset: 0
+	TTL: 4
+	protocol: 17
+	checksum: 4200
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: F2:F3:66:F0:BD:0D
+	source: 8E:F3:30:12:C4:30
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32916
+	fragment offset: 0
+	TTL: 6
+	protocol: 17
+	checksum: 3942
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: 1A:6B:B3:97:96:65
+	source: C6:66:8D:9B:C8:ED
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 0
+	length: 60
+	id: 32916
+	fragment offset: 0
+	TTL: 5
+	protocol: 17
+	checksum: 3943
+	source: 10.0.1.100
+	destination: 192.168.2.2
+ETHERNET header:
+	destination: C6:66:8D:9B:C8:ED
+	source: 1A:6B:B3:97:96:65
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33192
+	fragment offset: 0
+	TTL: 64
+	protocol: 1
+	checksum: 12074
+	source: 192.168.2.2
+	destination: 10.0.1.100
+ETHERNET header:
+	destination: 8E:F3:30:12:C4:30
+	source: F2:F3:66:F0:BD:0D
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33192
+	fragment offset: 0
+	TTL: 63
+	protocol: 1
+	checksum: 12075
+	source: 192.168.2.2
+	destination: 10.0.1.100
+ETHERNET header:
+	destination: C6:66:8D:9B:C8:ED
+	source: 1A:6B:B3:97:96:65
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33193
+	fragment offset: 0
+	TTL: 64
+	protocol: 1
+	checksum: 11818
+	source: 192.168.2.2
+	destination: 10.0.1.100
+PACKET'S CHECKSUM NETWORK 5224
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+FOUND IN ARP CACHE; SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 4968
+PACKET'S CHECKSUM NETWORK 4968
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+FOUND IN ARP CACHE; SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 4711
+PACKET'S CHECKSUM NETWORK 4711
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+FOUND IN ARP CACHE; SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 4455
+PACKET'S CHECKSUM NETWORK 4455
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+FOUND IN ARP CACHE; SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 4199
+PACKET'S CHECKSUM NETWORK 4199
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+FOUND IN ARP CACHE; SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 74 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 3942
+PACKET'S CHECKSUM NETWORK 3942
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 168
+THIS IS MASK & DESTIP: 192
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 192.168.2.2
+FOUND IN ARP CACHE; SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth1
+*** -> Received packet of length 102 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 12074
+PACKET'S CHECKSUM NETWORK 12074
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 1
+THIS IS MASK & DESTIP: 0
+THIS IS MASK & DESTIP: 10
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+FOUND IN ARP CACHE; SENDING PACKET
+eth3	HWaddrf2:f3:66:f0:bd:0d
+	inet addr 10.0.1.1
+eth2	HWaddr92:d8:5c:95:42:62
+	inet addr 172.64.3.1
+eth1	HWaddrc6:66:8d:9b:c8:ed
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth1
+*** -> Received packet of length 102 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 11818
+PACKET'S CHECKSUM NETWORK 11818
+THIS IS MASK & DESTIP: 100
+THIS IS MASK & DESTIP: 1
+THIS IS MASK & DESTIP: 0
+THIS IS MASK & DESTIP: 10
+THIS IS MASK & DESTIP: 2
+THIS IS MASK & DESTIP: 10
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+FOUND IN ARP CACHE; ETHERNET header:
+	destination: 8E:F3:30:12:C4:30
+	source: F2:F3:66:F0:BD:0D
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33193
+	fragment offset: 0
+	TTL: 63
+	protocol: 1
+	checksum: 11819
+	source: 192.168.2.2
+	destination: 10.0.1.100
+ETHERNET header:
+	destination: C6:66:8D:9B:C8:ED
+	source: 1A:6B:B3:97:96:65
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33194
+	fragment offset: 0
+	TTL: 64
+	protocol: 1
+	checksum: 11562
+	source: 192.168.2.2
+	destination: 10.0.1.100
+ETHERNET header:
+	destination: 8E:F3:30:12:C4:30
+	source: F2:F3:66:F0:BD:0D
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33194
+	fragment offset: 0
+	TTL: 63
+	protocol: 1
+	checksum: 11563
+	source: 192.168.2.2
+	destination: 10.0.1.100
+ETHERNET header:
+	destination: C6:66:8D:9B:C8:ED
+	source: 1A:6B:B3:97:96:65
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33195
+	fragment offset: 0
+	TTL: 64
+	protocol: 1
+	checksum: 11306
+	source: 192.168.2.2
+	destination: 10.0.1.100
+ETHERNET header:
+	destination: 8E:F3:30:12:C4:30
+	source: F2:F3:66:F0:BD:0D
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33195
+	fragment offset: 0
+	TTL: 63
+	protocol: 1
+	checksum: 11307
+	source: 192.168.2.2
+	destination: 10.0.1.100
+ETHERNET header:
+	destination: C6:66:8D:9B:C8:ED
+	source: 1A:6B:B3:97:96:65
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33196
+	fragment offset: 0
+	TTL: 64
+	protocol: 1
+	checksum: 11050
+	source: 192.168.2.2
+	destination: 10.0.1.100
+ETHERNET header:
+	destination: 8E:F3:30:12:C4:30
+	source: F2:F3:66:F0:BD:0D
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33196
+	fragment offset: 0
+	TTL: 63
+	protocol: 1
+	checksum: 11051
+	source: 192.168.2.2
+	destination: 10.0.1.100
+ETHERNET header:
+	destination: C6:66:8D:9B:C8:ED
+	source: 1A:6B:B3:97:96:65
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33197
+	fragment offset: 0
+	TTL: 64
+	protocol: 1
+	checksum: 10794
+	source: 192.168.2.2
+	destination: 10.0.1.100
+ETHERNET header:
+	destination: 8E:F3:30:12:C4:30
+	source: F2:F3:66:F0:BD:0D
+	type: 2048
+IP header:
+	version: 4
+	header length: 5
+	type of service: 192
+	length: 88
+	id: 33197
+	fragment offset: 0
+	TTL: 63
+	protocol: 1
+	checksum: 10795
+	source: 192.168.2.2
+	destination: 10.0.1.100
+
+
+Printing ARP Packet Contents
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 1
+	sender hardware address: 8E:F3:30:12:C4:30
+	sender ip address: 10.0.1.100
+	target hardware address: 00:00:00:00:00:00
+	target ip address: 10.0.1.1
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 2
+	sender hardware address: F2:F3:66:F0:BD:0D
+	sender ip address: 10.0.1.1
+	target hardware address: 8E:F3:30:12:C4:30
+	target ip address: 10.0.1.100
+
+
+Printing ARP Packet Contents
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 1
+	sender hardware address: 1A:6B:B3:97:96:65
+	sender ip address: 192.168.2.2
+	target hardware address: 00:00:00:00:00:00
+	target ip address: 192.168.2.1
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 2
+	sender hardware address: C6:66:8D:9B:C8:ED
+	sender ip address: 192.168.2.1
+	target hardware address: 1A:6B:B3:97:96:65
+	target ip address: 192.168.2.2

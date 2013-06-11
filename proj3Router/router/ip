@@ -1,0 +1,616 @@
+INSTRUCTIONS:  $ ./sr -s <controller_ip>
+INSTRUCTIONS:Using VNS sr stub code revised 2009-10-14 (rev 0.20)
+INSTRUCTIONS:---------------------------------------------
+INSTRUCTIONS:---------------------------------------------
+INSTRUCTIONS:---------------------------------------------
+INSTRUCTIONS:---------------------------------------------
+INSTRUCTIONS: <-- Ready to process packets -->
+INSTRUCTIONS:last IP block assigned to you and will always re-assign it to you unless someone
+INSTRUCTIONS: *** -> Received packet of length 42
+INSTRUCTIONS: *** -> Received packet of length 42
+INSTRUCTIONS: *** -> Received packet of length 42
+Makefile:#------------------------------------------------------------------------------
+Makefile:#------------------------------------------------------------------------------
+Makefile:ifeq ($(OSTYPE),CYGWIN_NT-5.1)
+Makefile:ARCH = -D_CYGWIN_
+Makefile:ARCH = -D_LINUX_
+Makefile:SOCK = -lnsl -lresolv
+Makefile:ARCH =  -D_SOLARIS_
+Makefile:SOCK = -lnsl -lsocket -lresolv
+Makefile:ARCH = -D_DARWIN_
+Makefile:SOCK = -lresolv
+Makefile:CFLAGS = -g -Wall -ansi -D_DEBUG_ -D_GNU_SOURCE $(ARCH)
+Makefile:LIBS= $(SOCK) -lm -lpthread
+Makefile:PFLAGS= -follow-child-processes=yes -cache-dir=/tmp/${USER} 
+Makefile:	$(CC) -c $(CFLAGS) $< -o $@
+Makefile:	$(CC) -MM $(CFLAGS) $<  > $@
+Makefile:-include $(sr_DEPS)	
+Makefile:	$(CC) $(CFLAGS) -o sr $(sr_OBJS) $(LIBS) 
+Makefile:	$(PURIFY) $(CC) $(CFLAGS) -o sr.purify $(sr_OBJS) $(LIBS)
+Makefile:.PHONY : clean clean-deps dist    
+Makefile:	rm -f *.o *~ core sr *.dump *.tar tags
+Makefile:clean-deps:
+Makefile:	rm -f .*.d
+Makefile:dist-clean: clean clean-deps
+Makefile:	rm -f .*.swp sr_stub.tar.gz
+Makefile:dist: dist-clean 
+Makefile:	(cd ..; tar -X stub/exclude -cvf sr_stub.tar stub/; gzip sr_stub.tar); \
+Makefile:	@tar -czf router-submit.tar.gz $(sr_SRCS) $(sr_HDRS) README Makefile
+ping.sh:if [ $# -ne 1 ]
+ping.sh:ping -c 30 $@
+sha1.c: *  $Id: sha1.c 12 2009-06-22 19:34:25Z paulej $
+sha1.c: *      in FIPS PUB 180-1 published April 17, 1995.
+sha1.c: *      Algorithm (SHA), produces a 160-bit message digest for a
+sha1.c: *      SHA-1 is defined in terms of 32-bit "words".  This code was
+sha1.c: *      a 32-bit machine word size.  If the machine word size is larger,
+sha1.c: *      SHA-1 is designed to work with messages less than 2^64 bits
+sha1.c: *      long. Although SHA-1 allows a message digest to be generated for
+sha1.c: *      multiple of the size of an 8-bit character.
+sha1.c:                ((word) >> (32-(bits))))
+sha1.c:    context->Length_Low             = 0;
+sha1.c:    context->Length_High            = 0;
+sha1.c:    context->Message_Block_Index    = 0;
+sha1.c:    context->Message_Digest[0]      = 0x67452301;
+sha1.c:    context->Message_Digest[1]      = 0xEFCDAB89;
+sha1.c:    context->Message_Digest[2]      = 0x98BADCFE;
+sha1.c:    context->Message_Digest[3]      = 0x10325476;
+sha1.c:    context->Message_Digest[4]      = 0xC3D2E1F0;
+sha1.c:    context->Computed   = 0;
+sha1.c:    context->Corrupted  = 0;
+sha1.c: *      This function will return the 160-bit message digest into the
+sha1.c: *          The context to use to calculate the SHA-1 hash.
+sha1.c:    if (context->Corrupted)
+sha1.c:    if (!context->Computed)
+sha1.c:        context->Computed = 1;
+sha1.c: *          The SHA-1 context to update
+sha1.c:    if (context->Computed || context->Corrupted)
+sha1.c:        context->Corrupted = 1;
+sha1.c:    while(length-- && !context->Corrupted)
+sha1.c:        context->Message_Block[context->Message_Block_Index++] =
+sha1.c:        context->Length_Low += 8;
+sha1.c:        context->Length_Low &= 0xFFFFFFFF;
+sha1.c:        if (context->Length_Low == 0)
+sha1.c:            context->Length_High++;
+sha1.c:            context->Length_High &= 0xFFFFFFFF;
+sha1.c:            if (context->Length_High == 0)
+sha1.c:                context->Corrupted = 1;
+sha1.c:        if (context->Message_Block_Index == 64)
+sha1.c:    const unsigned K[] =            /* Constants defined in SHA-1   */      
+sha1.c:        W[t] = ((unsigned) context->Message_Block[t * 4]) << 24;
+sha1.c:        W[t] |= ((unsigned) context->Message_Block[t * 4 + 1]) << 16;
+sha1.c:        W[t] |= ((unsigned) context->Message_Block[t * 4 + 2]) << 8;
+sha1.c:        W[t] |= ((unsigned) context->Message_Block[t * 4 + 3]);
+sha1.c:       W[t] = SHA1CircularShift(1,W[t-3] ^ W[t-8] ^ W[t-14] ^ W[t-16]);
+sha1.c:    A = context->Message_Digest[0];
+sha1.c:    B = context->Message_Digest[1];
+sha1.c:    C = context->Message_Digest[2];
+sha1.c:    D = context->Message_Digest[3];
+sha1.c:    E = context->Message_Digest[4];
+sha1.c:    context->Message_Digest[0] =
+sha1.c:                        (context->Message_Digest[0] + A) & 0xFFFFFFFF;
+sha1.c:    context->Message_Digest[1] =
+sha1.c:                        (context->Message_Digest[1] + B) & 0xFFFFFFFF;
+sha1.c:    context->Message_Digest[2] =
+sha1.c:                        (context->Message_Digest[2] + C) & 0xFFFFFFFF;
+sha1.c:    context->Message_Digest[3] =
+sha1.c:                        (context->Message_Digest[3] + D) & 0xFFFFFFFF;
+sha1.c:    context->Message_Digest[4] =
+sha1.c:                        (context->Message_Digest[4] + E) & 0xFFFFFFFF;
+sha1.c:    context->Message_Block_Index = 0;
+sha1.c:    if (context->Message_Block_Index > 55)
+sha1.c:        context->Message_Block[context->Message_Block_Index++] = 0x80;
+sha1.c:        while(context->Message_Block_Index < 64)
+sha1.c:            context->Message_Block[context->Message_Block_Index++] = 0;
+sha1.c:        while(context->Message_Block_Index < 56)
+sha1.c:            context->Message_Block[context->Message_Block_Index++] = 0;
+sha1.c:        context->Message_Block[context->Message_Block_Index++] = 0x80;
+sha1.c:        while(context->Message_Block_Index < 56)
+sha1.c:            context->Message_Block[context->Message_Block_Index++] = 0;
+sha1.c:    context->Message_Block[56] = (context->Length_High >> 24) & 0xFF;
+sha1.c:    context->Message_Block[57] = (context->Length_High >> 16) & 0xFF;
+sha1.c:    context->Message_Block[58] = (context->Length_High >> 8) & 0xFF;
+sha1.c:    context->Message_Block[59] = (context->Length_High) & 0xFF;
+sha1.c:    context->Message_Block[60] = (context->Length_Low >> 24) & 0xFF;
+sha1.c:    context->Message_Block[61] = (context->Length_Low >> 16) & 0xFF;
+sha1.c:    context->Message_Block[62] = (context->Length_Low >> 8) & 0xFF;
+sha1.c:    context->Message_Block[63] = (context->Length_Low) & 0xFF;
+sha1.h: *  $Id: sha1.h 12 2009-06-22 19:34:25Z paulej $
+sha1.h: *      in FIPS PUB 180-1 published April 17, 1995.
+sha1.h:    unsigned char Message_Block[64]; /* 512-bit message blocks      */
+Binary file sha1.o matches
+Binary file sr matches
+sr_arpcache.c:/* Checks if an IP->MAC mapping is in the cache. IP is in network byte order.
+sr_arpcache.c:    pthread_mutex_lock(&(cache->lock));
+sr_arpcache.c:        if ((cache->entries[i].valid) && (cache->entries[i].ip == ip)) {
+sr_arpcache.c:            entry = &(cache->entries[i]);
+sr_arpcache.c:    pthread_mutex_unlock(&(cache->lock));
+sr_arpcache.c:    pthread_mutex_lock(&(cache->lock));
+sr_arpcache.c:    for (req = cache->requests; req != NULL; req = req->next) {
+sr_arpcache.c:        if (req->ip == ip) {
+sr_arpcache.c:        req->ip = ip;
+sr_arpcache.c:        req->next = cache->requests;
+sr_arpcache.c:        cache->requests = req;
+sr_arpcache.c:        new_pkt->buf = (uint8_t *)malloc(packet_len);
+sr_arpcache.c:        memcpy(new_pkt->buf, packet, packet_len);
+sr_arpcache.c:        new_pkt->len = packet_len;
+sr_arpcache.c:		new_pkt->iface = (char *)malloc(sr_IFACE_NAMELEN);
+sr_arpcache.c:        strncpy(new_pkt->iface, iface, sr_IFACE_NAMELEN);
+sr_arpcache.c:        new_pkt->next = req->packets;
+sr_arpcache.c:        req->packets = new_pkt;
+sr_arpcache.c:    pthread_mutex_unlock(&(cache->lock));
+sr_arpcache.c:    pthread_mutex_lock(&(cache->lock));
+sr_arpcache.c:    for (req = cache->requests; req != NULL; req = req->next) {
+sr_arpcache.c:        if (req->ip == ip) {            
+sr_arpcache.c:                next = req->next;
+sr_arpcache.c:                prev->next = next;
+sr_arpcache.c:                next = req->next;
+sr_arpcache.c:                cache->requests = next;
+sr_arpcache.c:        if (!(cache->entries[i].valid))
+sr_arpcache.c:        memcpy(cache->entries[i].mac, mac, 6);
+sr_arpcache.c:        cache->entries[i].ip = ip;
+sr_arpcache.c:        cache->entries[i].added = time(NULL);
+sr_arpcache.c:        cache->entries[i].valid = 1;
+sr_arpcache.c:    pthread_mutex_unlock(&(cache->lock));
+sr_arpcache.c:    pthread_mutex_lock(&(cache->lock));
+sr_arpcache.c:        for (req = cache->requests; req != NULL; req = req->next) {
+sr_arpcache.c:                    next = req->next;
+sr_arpcache.c:                    prev->next = next;
+sr_arpcache.c:                    next = req->next;
+sr_arpcache.c:                    cache->requests = next;
+sr_arpcache.c:        for (pkt = entry->packets; pkt; pkt = nxt) {
+sr_arpcache.c:            nxt = pkt->next;
+sr_arpcache.c:            if (pkt->buf)
+sr_arpcache.c:                free(pkt->buf);
+sr_arpcache.c:            if (pkt->iface)
+sr_arpcache.c:                free(pkt->iface);
+sr_arpcache.c:    pthread_mutex_unlock(&(cache->lock));
+sr_arpcache.c:    fprintf(stderr, "-----------------------------------------------------------\n");
+sr_arpcache.c:        struct sr_arpentry *cur = &(cache->entries[i]);
+sr_arpcache.c:        unsigned char *mac = cur->mac;
+sr_arpcache.c:        fprintf(stderr, "%.1x%.1x%.1x%.1x%.1x%.1x   %.8x   %.24s   %d\n", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5], ntohl(cur->ip), ctime(&(cur->added)), cur->valid);
+sr_arpcache.c:    memset(cache->entries, 0, sizeof(cache->entries));
+sr_arpcache.c:    cache->requests = NULL;
+sr_arpcache.c:    pthread_mutexattr_init(&(cache->attr));
+sr_arpcache.c:    pthread_mutexattr_settype(&(cache->attr), PTHREAD_MUTEX_RECURSIVE);
+sr_arpcache.c:    int success = pthread_mutex_init(&(cache->lock), &(cache->attr));
+sr_arpcache.c:    return pthread_mutex_destroy(&(cache->lock)) && pthread_mutexattr_destroy(&(cache->attr));
+sr_arpcache.c:    struct sr_arpcache *cache = &(sr->cache);
+sr_arpcache.c:        pthread_mutex_lock(&(cache->lock));
+sr_arpcache.c:            if ((cache->entries[i].valid) && (difftime(curtime,cache->entries[i].added) > SR_ARPCACHE_TO)) {
+sr_arpcache.c:                cache->entries[i].valid = 0;
+sr_arpcache.c:        pthread_mutex_unlock(&(cache->lock));
+sr_arpcache.h:   to that ARP cache request. The ARP cache entries hold IP->MAC mappings and
+sr_arpcache.h:   --
+sr_arpcache.h:       use next_hop_ip->mac mapping in entry to send the packet
+sr_arpcache.h:   --
+sr_arpcache.h:       if difftime(now, req->sent) > 1.0
+sr_arpcache.h:           if req->times_sent >= 5:
+sr_arpcache.h:               req->sent = now
+sr_arpcache.h:               req->times_sent++
+sr_arpcache.h:   --
+sr_arpcache.h:   # When servicing an arp reply that gives us an IP->MAC mapping
+sr_arpcache.h:       send all packets on the req->packets linked list
+sr_arpcache.h:   --
+sr_arpcache.h:       for each request on sr->cache.requests:
+sr_arpcache.h:/* Checks if an IP->MAC mapping is in the cache. IP is in network byte order. 
+sr_arpcache.h:/* You shouldn't have to call these methods--they're already called in the
+Binary file sr_arpcache.o matches
+sr_dumper.c:        if (fname[0] == '-' && fname[1] == '\0')
+sr_dumper.c:        sf_hdr.ts.tv_sec  = h->ts.tv_sec;
+sr_dumper.c:        sf_hdr.ts.tv_usec = h->ts.tv_usec;
+sr_dumper.c:        sf_hdr.caplen     = h->caplen;
+sr_dumper.c:        sf_hdr.len        = h->len;
+sr_dumper.c:        (void)fwrite((char *)sp, h->caplen, 1, fp);
+Binary file sr_dumper.o matches
+sr_if.c:/*-----------------------------------------------------------------------------
+sr_if.c: *---------------------------------------------------------------------------*/
+sr_if.c:/*--------------------------------------------------------------------- 
+sr_if.c: *---------------------------------------------------------------------*/
+sr_if.c:    /* -- REQUIRES -- */
+sr_if.c:    if_walker = sr->if_list;
+sr_if.c:       if(!strncmp(if_walker->name,name,sr_IFACE_NAMELEN))
+sr_if.c:        if_walker = if_walker->next;
+sr_if.c:} /* -- sr_get_interface -- */
+sr_if.c:/*--------------------------------------------------------------------- 
+sr_if.c: *---------------------------------------------------------------------*/
+sr_if.c:    /* -- REQUIRES -- */
+sr_if.c:    /* -- empty list special case -- */
+sr_if.c:    if(sr->if_list == 0)
+sr_if.c:        sr->if_list = (struct sr_if*)malloc(sizeof(struct sr_if));
+sr_if.c:        assert(sr->if_list);
+sr_if.c:        sr->if_list->next = 0;
+sr_if.c:        strncpy(sr->if_list->name,name,sr_IFACE_NAMELEN);
+sr_if.c:    /* -- find the end of the list -- */
+sr_if.c:    if_walker = sr->if_list;
+sr_if.c:    while(if_walker->next)
+sr_if.c:    {if_walker = if_walker->next; }
+sr_if.c:    if_walker->next = (struct sr_if*)malloc(sizeof(struct sr_if));
+sr_if.c:    assert(if_walker->next);
+sr_if.c:    if_walker = if_walker->next;
+sr_if.c:    strncpy(if_walker->name,name,sr_IFACE_NAMELEN);
+sr_if.c:    if_walker->next = 0;
+sr_if.c:} /* -- sr_add_interface -- */ 
+sr_if.c:/*--------------------------------------------------------------------- 
+sr_if.c: *---------------------------------------------------------------------*/
+sr_if.c:    /* -- REQUIRES -- */
+sr_if.c:    assert(sr->if_list);
+sr_if.c:    if_walker = sr->if_list;
+sr_if.c:    while(if_walker->next)
+sr_if.c:    {if_walker = if_walker->next; }
+sr_if.c:    /* -- copy address -- */
+sr_if.c:    memcpy(if_walker->addr,addr,6);
+sr_if.c:} /* -- sr_set_ether_addr -- */
+sr_if.c:/*--------------------------------------------------------------------- 
+sr_if.c: *---------------------------------------------------------------------*/
+sr_if.c:    /* -- REQUIRES -- */
+sr_if.c:    assert(sr->if_list);
+sr_if.c:    if_walker = sr->if_list;
+sr_if.c:    while(if_walker->next)
+sr_if.c:    {if_walker = if_walker->next; }
+sr_if.c:    /* -- copy address -- */
+sr_if.c:    if_walker->ip = ip_nbo;
+sr_if.c:} /* -- sr_set_ether_ip -- */
+sr_if.c:/*--------------------------------------------------------------------- 
+sr_if.c: *---------------------------------------------------------------------*/
+sr_if.c:    if(sr->if_list == 0)
+sr_if.c:    if_walker = sr->if_list;
+sr_if.c:    while(if_walker->next)
+sr_if.c:        if_walker = if_walker->next; 
+sr_if.c:} /* -- sr_print_if_list -- */
+sr_if.c:/*--------------------------------------------------------------------- 
+sr_if.c: *---------------------------------------------------------------------*/
+sr_if.c:    /* -- REQUIRES --*/
+sr_if.c:    assert(iface->name);
+sr_if.c:    ip_addr.s_addr = iface->ip;
+sr_if.c:    Debug("%s\tHWaddr",iface->name);
+sr_if.c:    DebugMAC(iface->addr);
+sr_if.c:} /* -- sr_print_if -- */
+sr_if.h:/*-----------------------------------------------------------------------------
+sr_if.h: *---------------------------------------------------------------------------*/
+sr_if.h:/* ----------------------------------------------------------------------------
+sr_if.h: * -------------------------------------------------------------------------- */
+sr_if.h:#endif /* --  sr_INTERFACE_H -- */
+Binary file sr_if.o matches
+sr_main.c:/*-----------------------------------------------------------------------------
+sr_main.c: *---------------------------------------------------------------------------*/
+sr_main.c:/*-----------------------------------------------------------------------------
+sr_main.c: *---------------------------------------------------------------------------*/
+sr_main.c:#define VERSION_INFO "VNS sr stub code revised 2009-10-14 (rev 0.20)"
+sr_main.c:/*-----------------------------------------------------------------------------
+sr_main.c: *---------------------------------------------------------------------------*/
+sr_main.c:    } /* -- while -- */
+sr_main.c:    /* -- zero out sr instance -- */
+sr_main.c:    /* -- set up routing table from file -- */
+sr_main.c:    /* -- set up file pointer for logging of raw packets -- */
+sr_main.c:    if(sr_connect_to_server(&sr,port,server) == -1)
+sr_main.c:    /* -- whizbang main loop ;-) */
+sr_main.c:}/* -- main -- */
+sr_main.c:/*-----------------------------------------------------------------------------
+sr_main.c: *---------------------------------------------------------------------------*/
+sr_main.c:    printf("Format: %s [-h] [-v host] [-s server] [-p port] \n",argv0);
+sr_main.c:    printf("           [-T template_name] [-u username] \n");
+sr_main.c:    printf("           [-t topo id] [-r routing table] \n");
+sr_main.c:    printf("           [-l log file] \n");
+sr_main.c:} /* -- usage -- */
+sr_main.c:/*-----------------------------------------------------------------------------
+sr_main.c: *---------------------------------------------------------------------------*/
+sr_main.c:        strncpy(sr->user, "something_silly", 32);
+sr_main.c:        strncpy(sr->user, pw->pw_name, 32);
+sr_main.c:} /* -- sr_set_user -- */
+sr_main.c:/*-----------------------------------------------------------------------------
+sr_main.c: *----------------------------------------------------------------------------*/
+sr_main.c:    if(sr->logfile)
+sr_main.c:        sr_dump_close(sr->logfile);
+sr_main.c:} /* -- sr_destroy_instance -- */
+sr_main.c:/*-----------------------------------------------------------------------------
+sr_main.c: *----------------------------------------------------------------------------*/
+sr_main.c:    sr->sockfd = -1;
+sr_main.c:    sr->user[0] = 0;
+sr_main.c:    sr->host[0] = 0;
+sr_main.c:    sr->topo_id = 0;
+sr_main.c:    sr->if_list = 0;
+sr_main.c:    sr->routing_table = 0;
+sr_main.c:    sr->logfile = 0;
+sr_main.c:} /* -- sr_init_instance -- */
+sr_main.c:/*-----------------------------------------------------------------------------
+sr_main.c: *---------------------------------------------------------------------------*/
+sr_main.c:    /* -- REQUIRES --*/
+sr_main.c:    if( (sr->if_list == 0) || (sr->routing_table == 0))
+sr_main.c:    rt_walker = sr->routing_table;
+sr_main.c:        /* -- check to see if interface exists -- */
+sr_main.c:        if_walker = sr->if_list;
+sr_main.c:            if( strncmp(if_walker->name,rt_walker->interface,sr_IFACE_NAMELEN)
+sr_main.c:            if_walker = if_walker->next;
+sr_main.c:        { ret++; } /* -- interface not found! -- */
+sr_main.c:        rt_walker = rt_walker->next;
+sr_main.c:    } /* -- while -- */
+sr_main.c:} /* -- sr_verify_routing_table -- */
+sr_main.c:    printf("---------------------------------------------\n");
+sr_main.c:    printf("---------------------------------------------\n");
+Binary file sr_main.o matches
+sr_protocol.h:#endif /* -- SR_PROTOCOL_H -- */
+sr_router.c:/*---------------------------------------------------------------------
+sr_router.c: *---------------------------------------------------------------------*/
+sr_router.c:    sr_arpcache_init(&(sr->cache));
+sr_router.c:    pthread_attr_init(&(sr->attr));
+sr_router.c:    pthread_attr_setdetachstate(&(sr->attr), PTHREAD_CREATE_JOINABLE);
+sr_router.c:    pthread_attr_setscope(&(sr->attr), PTHREAD_SCOPE_SYSTEM);
+sr_router.c:    pthread_attr_setscope(&(sr->attr), PTHREAD_SCOPE_SYSTEM);
+sr_router.c:    pthread_create(&thread, &(sr->attr), sr_arpcache_timeout, sr);
+sr_router.c:} /* -- sr_init -- */
+sr_router.c:/*---------------------------------------------------------------------
+sr_router.c: *---------------------------------------------------------------------*/
+sr_router.c:  printf("*** -> Received packet of length %d \n",len);
+sr_router.c:  printf("THIS IS ETHER_TYPE: %x\n", ntohs(e_hdr->ether_type));
+sr_router.c:  if (ntohs(e_hdr->ether_type) == ethertype_arp)
+sr_router.c:    if (ntohs(arp_hdr->ar_op) == arp_op_request)
+sr_router.c:      iface = sr->if_list;
+sr_router.c:        printf("Our iface IP: %d, their dest IP: %d\n", ntohs(iface->ip), ntohs(arp_hdr->ar_tip));
+sr_router.c:        if (ntohs(iface->ip) == ntohs(arp_hdr->ar_tip))
+sr_router.c:        iface = iface->next;
+sr_router.c:    else if (ntohs(arp_hdr->ar_op) == arp_op_reply)
+sr_router.c:  else if (ntohs(e_hdr->ether_type) == ethertype_ip)
+sr_router.c:    if (ntohs(ip_hdr->ip_p) == ip_protocol_icmp)
+sr_router.h:/*-----------------------------------------------------------------------------
+sr_router.h: *---------------------------------------------------------------------------*/
+sr_router.h:/* ----------------------------------------------------------------------------
+sr_router.h: * -------------------------------------------------------------------------- */
+sr_router.h:/* -- sr_main.c -- */
+sr_router.h:/* -- sr_vns_comm.c -- */
+sr_router.h:/* -- sr_router.c -- */
+sr_router.h:/* -- sr_if.c -- */
+Binary file sr_router.o matches
+sr_rt.c:/*-----------------------------------------------------------------------------
+sr_rt.c: *---------------------------------------------------------------------------*/
+sr_rt.c:/*---------------------------------------------------------------------
+sr_rt.c: *---------------------------------------------------------------------*/
+sr_rt.c:    /* -- REQUIRES -- */
+sr_rt.c:        return -1;
+sr_rt.c:            return -1; 
+sr_rt.c:            return -1; 
+sr_rt.c:            return -1; 
+sr_rt.c:            sr->routing_table = 0;
+sr_rt.c:    } /* -- while -- */
+sr_rt.c:    return 0; /* -- success -- */
+sr_rt.c:} /* -- sr_load_rt -- */
+sr_rt.c:/*---------------------------------------------------------------------
+sr_rt.c: *---------------------------------------------------------------------*/
+sr_rt.c:    /* -- REQUIRES -- */
+sr_rt.c:    /* -- empty list special case -- */
+sr_rt.c:    if(sr->routing_table == 0)
+sr_rt.c:        sr->routing_table = (struct sr_rt*)malloc(sizeof(struct sr_rt));
+sr_rt.c:        assert(sr->routing_table);
+sr_rt.c:        sr->routing_table->next = 0;
+sr_rt.c:        sr->routing_table->dest = dest;
+sr_rt.c:        sr->routing_table->gw   = gw;
+sr_rt.c:        sr->routing_table->mask = mask;
+sr_rt.c:        strncpy(sr->routing_table->interface,if_name,sr_IFACE_NAMELEN);
+sr_rt.c:    /* -- find the end of the list -- */
+sr_rt.c:    rt_walker = sr->routing_table;
+sr_rt.c:    while(rt_walker->next){
+sr_rt.c:      rt_walker = rt_walker->next; 
+sr_rt.c:    rt_walker->next = (struct sr_rt*)malloc(sizeof(struct sr_rt));
+sr_rt.c:    assert(rt_walker->next);
+sr_rt.c:    rt_walker = rt_walker->next;
+sr_rt.c:    rt_walker->next = 0;
+sr_rt.c:    rt_walker->dest = dest;
+sr_rt.c:    rt_walker->gw   = gw;
+sr_rt.c:    rt_walker->mask = mask;
+sr_rt.c:    strncpy(rt_walker->interface,if_name,sr_IFACE_NAMELEN);
+sr_rt.c:} /* -- sr_add_entry -- */
+sr_rt.c:/*---------------------------------------------------------------------
+sr_rt.c: *---------------------------------------------------------------------*/
+sr_rt.c:    if(sr->routing_table == 0)
+sr_rt.c:    rt_walker = sr->routing_table;
+sr_rt.c:    while(rt_walker->next)
+sr_rt.c:        rt_walker = rt_walker->next; 
+sr_rt.c:} /* -- sr_print_routing_table -- */
+sr_rt.c:/*---------------------------------------------------------------------
+sr_rt.c: *---------------------------------------------------------------------*/
+sr_rt.c:    /* -- REQUIRES --*/
+sr_rt.c:    assert(entry->interface);
+sr_rt.c:    printf("%s\t\t",inet_ntoa(entry->dest));
+sr_rt.c:    printf("%s\t",inet_ntoa(entry->gw));
+sr_rt.c:    printf("%s\t",inet_ntoa(entry->mask));
+sr_rt.c:    printf("%s\n",entry->interface);
+sr_rt.c:} /* -- sr_print_routing_entry -- */
+sr_rt.h:/*-----------------------------------------------------------------------------
+sr_rt.h: *---------------------------------------------------------------------------*/
+sr_rt.h:/* ----------------------------------------------------------------------------
+sr_rt.h: * -------------------------------------------------------------------------- */
+sr_rt.h:#endif  /* --  sr_RT_H -- */
+Binary file sr_rt.o matches
+sr_utils.c:  for (sum = 0;len >= 2; data += 2, len -= 2)
+sr_utils.c:  return ntohs(ehdr->ether_type);
+sr_utils.c:  return iphdr->ip_p;
+sr_utils.c:  print_addr_eth(ehdr->ether_dhost);
+sr_utils.c:  print_addr_eth(ehdr->ether_shost);
+sr_utils.c:  fprintf(stderr, "\ttype: %d\n", ntohs(ehdr->ether_type));
+sr_utils.c:  fprintf(stderr, "\tversion: %d\n", iphdr->ip_v);
+sr_utils.c:  fprintf(stderr, "\theader length: %d\n", iphdr->ip_hl);
+sr_utils.c:  fprintf(stderr, "\ttype of service: %d\n", iphdr->ip_tos);
+sr_utils.c:  fprintf(stderr, "\tlength: %d\n", ntohs(iphdr->ip_len));
+sr_utils.c:  fprintf(stderr, "\tid: %d\n", ntohs(iphdr->ip_id));
+sr_utils.c:  if (ntohs(iphdr->ip_off) & IP_DF)
+sr_utils.c:  else if (ntohs(iphdr->ip_off) & IP_MF)
+sr_utils.c:  else if (ntohs(iphdr->ip_off) & IP_RF)
+sr_utils.c:  fprintf(stderr, "\tfragment offset: %d\n", ntohs(iphdr->ip_off) & IP_OFFMASK);
+sr_utils.c:  fprintf(stderr, "\tTTL: %d\n", iphdr->ip_ttl);
+sr_utils.c:  fprintf(stderr, "\tprotocol: %d\n", iphdr->ip_p);
+sr_utils.c:  fprintf(stderr, "\tchecksum: %d\n", iphdr->ip_sum);
+sr_utils.c:  print_addr_ip_int(ntohl(iphdr->ip_src));
+sr_utils.c:  print_addr_ip_int(ntohl(iphdr->ip_dst));
+sr_utils.c:  fprintf(stderr, "\ttype: %d\n", icmp_hdr->icmp_type);
+sr_utils.c:  fprintf(stderr, "\tcode: %d\n", icmp_hdr->icmp_code);
+sr_utils.c:  fprintf(stderr, "\tchecksum: %d\n", icmp_hdr->icmp_sum);
+sr_utils.c:  fprintf(stderr, "\thardware type: %d\n", ntohs(arp_hdr->ar_hrd));
+sr_utils.c:  fprintf(stderr, "\tprotocol type: %d\n", ntohs(arp_hdr->ar_pro));
+sr_utils.c:  fprintf(stderr, "\thardware address length: %d\n", arp_hdr->ar_hln);
+sr_utils.c:  fprintf(stderr, "\tprotocol address length: %d\n", arp_hdr->ar_pln);
+sr_utils.c:  fprintf(stderr, "\topcode: %d\n", ntohs(arp_hdr->ar_op));
+sr_utils.c:  print_addr_eth(arp_hdr->ar_sha);
+sr_utils.c:  print_addr_ip_int(ntohl(arp_hdr->ar_sip));
+sr_utils.c:  print_addr_eth(arp_hdr->ar_tha);
+sr_utils.c:  print_addr_ip_int(ntohl(arp_hdr->ar_tip));
+sr_utils.h:#endif /* -- SR_UTILS_H -- */
+Binary file sr_utils.o matches
+sr_vns_comm.c:/*-----------------------------------------------------------------------------
+sr_vns_comm.c: * 2003-Dec-03 09:00:52 AM :
+sr_vns_comm.c: *   - bug sending packets read from client to sr_log_packet.  Packet was
+sr_vns_comm.c: *  2004-Jan-29 07:09:28 PM
+sr_vns_comm.c: *   - added check to handle signal interrupts on recv (for use with
+sr_vns_comm.c: *   2004-Jan-31 01:27:54 PM
+sr_vns_comm.c: *    - William Chan (chanman@stanford.edu) submitted patch for UMR on
+sr_vns_comm.c: *---------------------------------------------------------------------------*/
+sr_vns_comm.c:/*-----------------------------------------------------------------------------
+sr_vns_comm.c: *----------------------------------------------------------------------------*/
+sr_vns_comm.c:/*-----------------------------------------------------------------------------
+sr_vns_comm.c: *---------------------------------------------------------------------------*/
+sr_vns_comm.c:    memset(&(sr->sr_addr),0,sizeof(struct sockaddr_in));
+sr_vns_comm.c:    sr->sr_addr.sin_family = AF_INET;
+sr_vns_comm.c:    sr->sr_addr.sin_port = htons(port);
+sr_vns_comm.c:        return -1;
+sr_vns_comm.c:    memcpy(&(sr->sr_addr.sin_addr),hp->h_addr,hp->h_length);
+sr_vns_comm.c:    if ((sr->sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+sr_vns_comm.c:        return -1;
+sr_vns_comm.c:    if (connect(sr->sockfd, (struct sockaddr *)&(sr->sr_addr),
+sr_vns_comm.c:                sizeof(sr->sr_addr)) < 0)
+sr_vns_comm.c:        close(sr->sockfd);
+sr_vns_comm.c:        return -1;
+sr_vns_comm.c:        return -1; /* failed to receive expected message */
+sr_vns_comm.c:    if(strlen(sr->template) > 0) {
+sr_vns_comm.c:        strncpy(ot.templateName, sr->template, 30);
+sr_vns_comm.c:        strncpy(ot.mVirtualHostID, sr->host, IDSIZE);
+sr_vns_comm.c:        command.topoID = htons(sr->topo_id);
+sr_vns_comm.c:        strncpy( command.mVirtualHostID, sr->host,  IDSIZE);
+sr_vns_comm.c:        strncpy( command.mUID, sr->user, IDSIZE);
+sr_vns_comm.c:    if(send(sr->sockfd, buf, buf_len, 0) != buf_len)
+sr_vns_comm.c:        return -1;
+sr_vns_comm.c:    if(strlen(sr->template) > 0)
+sr_vns_comm.c:            return -1; /* needed to get the rtable */
+sr_vns_comm.c:} /* -- sr_connect_to_server -- */
+sr_vns_comm.c:/*-----------------------------------------------------------------------------
+sr_vns_comm.c: *---------------------------------------------------------------------------*/
+sr_vns_comm.c:    num_entries = (ntohl(hwinfo->mLen) - (2*sizeof(uint32_t)))/sizeof(c_hw_entry);
+sr_vns_comm.c:        switch( ntohl(hwinfo->mHWInfo[i].mKey))
+sr_vns_comm.c:                            *((struct in_addr*)(hwinfo->mHWInfo[i].value))));*/
+sr_vns_comm.c:                /*Debug("INTERFACE: %s\n",hwinfo->mHWInfo[i].value);*/
+sr_vns_comm.c:                sr_add_interface(sr,hwinfo->mHWInfo[i].value);
+sr_vns_comm.c:                        ntohl(*((unsigned int*)hwinfo->mHWInfo[i].value))); */
+sr_vns_comm.c:                            *((struct in_addr*)(hwinfo->mHWInfo[i].value)))); */
+sr_vns_comm.c:                            *((struct in_addr*)(hwinfo->mHWInfo[i].value)))); */
+sr_vns_comm.c:                            *((struct in_addr*)(hwinfo->mHWInfo[i].value))));*/
+sr_vns_comm.c:                sr_set_ether_ip(sr,*((uint32_t*)hwinfo->mHWInfo[i].value));
+sr_vns_comm.c:                DebugMAC(hwinfo->mHWInfo[i].value);
+sr_vns_comm.c:                sr_set_ether_addr(sr,(unsigned char*)hwinfo->mHWInfo[i].value);
+sr_vns_comm.c:                printf (" %d \n",ntohl(hwinfo->mHWInfo[i].mKey));
+sr_vns_comm.c:        } /* -- switch -- */
+sr_vns_comm.c:    } /* -- for -- */
+sr_vns_comm.c:} /* -- sr_handle_hwinfo -- */
+sr_vns_comm.c:    strcat(fn, rtable->mVirtualHostID);
+sr_vns_comm.c:        fwrite(rtable->rtable, ntohl(rtable->mLen) - 8 - IDSIZE, 1, fp);
+sr_vns_comm.c:        SHA1Input(&sha1, req->salt, ntohl(req->mLen) - sizeof(*req));
+sr_vns_comm.c:        len_username = strlen(sr->user);
+sr_vns_comm.c:        ar->mLen = htonl(len);
+sr_vns_comm.c:        ar->mType = htonl(VNS_AUTH_REPLY);
+sr_vns_comm.c:        ar->usernameLen = htonl(len_username);
+sr_vns_comm.c:        strcpy(ar->username, sr->user);
+sr_vns_comm.c:        memcpy(ar->username + len_username, sha1.Message_Digest, SHA1_LEN);
+sr_vns_comm.c:        if(send(sr->sockfd, buf, len, 0) != len) {
+sr_vns_comm.c:    if(status->auth_ok)
+sr_vns_comm.c:        printf("successfully authenticated as %s\n", sr->user);
+sr_vns_comm.c:        fprintf(stderr, "Authentication failed as %s: %s\n", sr->user, status->msg);
+sr_vns_comm.c:    return status->auth_ok;
+sr_vns_comm.c:/*-----------------------------------------------------------------------------
+sr_vns_comm.c: *---------------------------------------------------------------------------*/
+sr_vns_comm.c:    /*---------------------------------------------------------------------------
+sr_vns_comm.c:      -------------------------------------------------------------------------*/
+sr_vns_comm.c:        { /* -- just in case SIGALRM breaks recv -- */
+sr_vns_comm.c:            errno = 0; /* -- hacky glibc workaround -- */
+sr_vns_comm.c:            if((ret = recv(sr->sockfd,((uint8_t*)&len) + bytes_read,
+sr_vns_comm.c:                            4 - bytes_read, 0)) == -1)
+sr_vns_comm.c:                return -1;
+sr_vns_comm.c:        close(sr->sockfd);
+sr_vns_comm.c:        return -1;
+sr_vns_comm.c:        return -1;
+sr_vns_comm.c:    while ( bytes_read < len - 4)
+sr_vns_comm.c:        {/* -- just in case SIGALRM breaks recv -- */
+sr_vns_comm.c:            errno = 0; /* -- hacky glibc workaround -- */
+sr_vns_comm.c:            if ((ret = read(sr->sockfd, buf+4+bytes_read, len - 4 - bytes_read)) ==
+sr_vns_comm.c:                    -1)
+sr_vns_comm.c:                close(sr->sockfd);
+sr_vns_comm.c:                return -1;
+sr_vns_comm.c:    /* My entry for most unreadable line of code - guido */
+sr_vns_comm.c:    /* ... you win - mc                                  */
+sr_vns_comm.c:            return -1;
+sr_vns_comm.c:        /* -------------        VNSPACKET     -------------------- */
+sr_vns_comm.c:            /* -- check if it is an ARP to another router if so drop   -- */
+sr_vns_comm.c:                    len - sizeof(c_packet_ethernet_header) +
+sr_vns_comm.c:            /* -- log packet -- */
+sr_vns_comm.c:                    ntohl(sr_pkt->mLen) - sizeof(c_packet_header));
+sr_vns_comm.c:            /* -- pass to router, student's code should take over here -- */
+sr_vns_comm.c:                    len - sizeof(c_packet_ethernet_header) +
+sr_vns_comm.c:            /* -------------        VNSCLOSE      -------------------- */
+sr_vns_comm.c:            fprintf(stderr,"Reason: %s\n",((c_close*)buf)->mErrorMessage);
+sr_vns_comm.c:            /* -------------        VNSBANNER      -------------------- */
+sr_vns_comm.c:            fprintf(stderr,"%s",((c_banner*)buf)->mBannerMessage);
+sr_vns_comm.c:            /* -------------     VNSHWINFO     -------------------- */
+sr_vns_comm.c:                return -1;
+sr_vns_comm.c:            printf(" <-- Ready to process packets --> \n");
+sr_vns_comm.c:            /* ---------------- VNS_RTABLE ---------------- */
+sr_vns_comm.c:                ret = -1;
+sr_vns_comm.c:            /* ------------- VNS_AUTH_REQUEST ------------- */
+sr_vns_comm.c:                ret = -1;
+sr_vns_comm.c:            /* ------------- VNS_AUTH_STATUS -------------- */
+sr_vns_comm.c:                ret = -1;
+sr_vns_comm.c:    }/* -- switch -- */
+sr_vns_comm.c:}/* -- sr_read_from_server -- */
+sr_vns_comm.c:/*-----------------------------------------------------------------------------
+sr_vns_comm.c: *----------------------------------------------------------------------------*/
+sr_vns_comm.c:    /* -- REQUIRES -- */
+sr_vns_comm.c:    if ( memcmp( ether_hdr->ether_shost, iface->addr, ETHER_ADDR_LEN) != 0 ){
+sr_vns_comm.c:} /* -- sr_ether_addrs_match_interface -- */
+sr_vns_comm.c:/*-----------------------------------------------------------------------------
+sr_vns_comm.c: *---------------------------------------------------------------------------*/
+sr_vns_comm.c:        return -1;
+sr_vns_comm.c:    sr_pkt->mLen  = htonl(total_len);
+sr_vns_comm.c:    sr_pkt->mType = htonl(VNSPACKET);
+sr_vns_comm.c:    strncpy(sr_pkt->mInterfaceName,iface,16);
+sr_vns_comm.c:    /* -- log packet -- */
+sr_vns_comm.c:        return -1;
+sr_vns_comm.c:    if( write(sr->sockfd, sr_pkt, total_len) < total_len ){
+sr_vns_comm.c:        return -1;
+sr_vns_comm.c:} /* -- sr_send_packet -- */
+sr_vns_comm.c:/*-----------------------------------------------------------------------------
+sr_vns_comm.c: *---------------------------------------------------------------------------*/
+sr_vns_comm.c:    if(!sr->logfile)
+sr_vns_comm.c:    sr_dump(sr->logfile, &h, buf);
+sr_vns_comm.c:    fflush(sr->logfile);
+sr_vns_comm.c:} /* -- sr_log_packet -- */
+sr_vns_comm.c:/*-----------------------------------------------------------------------------
+sr_vns_comm.c: *---------------------------------------------------------------------------*/
+sr_vns_comm.c:    if ( (e_hdr->ether_type == htons(ethertype_arp)) &&
+sr_vns_comm.c:            (a_hdr->ar_op      == htons(arp_op_request))   &&
+sr_vns_comm.c:            (a_hdr->ar_tip     != iface->ip ) )
+sr_vns_comm.c:} /* -- sr_arp_req_not_for_us -- */
+Binary file sr_vns_comm.o matches
+traceroute.sh:if [ $# -ne 1 ]
+traceroute.sh:traceroute -p 33000 -w 1 -n $@
+vnscommand.h:/*-----------------------------------------------------------------------------
+vnscommand.h:   A c-style declaration of commands for the virtual router.
+vnscommand.h:  ---------------------------------------------------------------------------*/
+vnscommand.h:/*-----------------------------------------------------------------------------
+vnscommand.h:  ---------------------------------------------------------------------------*/
+vnscommand.h:/*-----------------------------------------------------------------------------
+vnscommand.h:  ---------------------------------------------------------------------------*/
+vnscommand.h:                                        'VNS-A'); */
+vnscommand.h:/*-----------------------------------------------------------------------------
+vnscommand.h:  ---------------------------------------------------------------------------*/
+vnscommand.h:/*-----------------------------------------------------------------------------
+vnscommand.h:  ---------------------------------------------------------------------------*/
+vnscommand.h:/*-----------------------------------------------------------------------------
+vnscommand.h:  ---------------------------------------------------------------------------*/
+vnscommand.h:/*-----------------------------------------------------------------------------
+vnscommand.h:  ---------------------------------------------------------------------------*/
+vnscommand.h:/*-----------------------------------------------------------------------------
+vnscommand.h:  ----------------------------------------------------------------------------*/

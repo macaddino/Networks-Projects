@@ -1,0 +1,415 @@
+
+
+Printing ARP Packet Contents
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 1
+	sender hardware address: 76:B4:65:AF:0E:74
+	sender ip address: 10.0.1.100
+	target hardware address: 00:00:00:00:00:00
+	target ip address: 10.0.1.1
+ARP header
+	hardware type: 1
+	protocol type: 2048
+	hardware address length: 6
+	protocol address length: 4
+	opcode: 2
+	sender hardware address: 7E:5D:81:B9:66:C0
+	sender ip address: 10.0.1.1
+	target hardware address: 76:B4:65:AF:0E:74
+	target ip address: 10.0.1.100
+ETHERNET header:
+	destination: 7E:5D:81:B9:66:C0
+	source: 76:B4:65:AF:0E:74
+	type: 2048
+IP header:
+	version: 1024
+	header length: 1280
+	type of service: 0
+	length: 84
+	id: 0
+	fragment flag: DF
+	fragment offset: 0
+	TTL: 16384
+	protocol: 256
+	checksum: 27804
+	source: 10.0.1.100
+	destination: 192.168.2.1
+ETHERNET header:
+	destination: 76:B4:65:AF:0E:74
+	source: 7E:5D:81:B9:66:C0
+	type: 2048
+IP header:
+	version: 1024
+	header length: 1280
+	type of service: 0
+	length: 56
+	id: 0
+	fragment flag: DF
+	fragment offset: 0
+	TTL: 16384
+	protocol: 0
+	checksum: 9314
+	source: 10.0.1.1
+	destination: 10.0.1.100
+ICMP header:
+	type: 3
+	code: 3
+	checksum: 21488
+ETHERNET header:
+	destination: 7E:5D:81:B9:66:C0
+	source: 76:B4:65:AF:0E:74
+	type: 2048
+IP header:
+	version: 1024
+	header length: 1280
+	type of service: 49152
+	length: 84
+	id: 42883
+	fragment offset: 0
+	TTL: 16384
+	protocol: 256
+	checksum: 48129
+	source: 10.0.1.100
+	destination: 10.0.1.1
+ETHERNET header:
+	destination: 76:B4:65:AF:0E:74
+	source: 7E:5D:81:B9:66:C0
+	type: 2048
+IP header:
+	version: 1024
+	header length: 1280
+	type of service: 0
+	length: 56
+	id: 0
+	fragment offset: 0
+	TTL: 16384
+	protocol: 0
+	checksum: 25698
+	source: 10.0.1.1
+	destination: 10.0.1.100
+ICMP header:
+	type: 3
+	code: 3
+	checksum: 47800
+ETHERNET header:
+	destination: 7E:5D:81:B9:66:C0
+	source: 76:B4:65:AF:0E:74
+	type: 2048
+IP header:
+	version: 1024
+	header length: 1280
+	type of service: 49152
+	length: 84
+	id: 42884
+	fragment offset: 0
+	TTL: 16384
+	protocol: 256
+	checksum: 48128
+	source: 10.0.1.100
+	destination: 10.0.1.1
+ETHERNET header:
+	destination: 76:B4:65:AF:0E:74
+	source: 7E:5D:81:B9:66:C0
+	type: 2048
+IP header:
+	version: 1024
+	header length: 1280
+	type of service: 0
+	length: 56
+	id: 0
+	fragment offset: 0
+	TTL: 16384
+	protocol: 0
+	checksum: 25698
+	source: 10.0.1.1
+	destination: 10.0.1.100
+ICMP header:
+	type: 3
+	code: 3
+	checksum: 47544
+ETHERNET header:
+	destination: 7E:5D:81:B9:66:C0
+	source: 76:B4:65:AF:0E:74
+	type: 2048
+IP header:
+	version: 1024
+	header length: 1280
+	type of service: 49152
+	length: 84
+	id: 42885
+	fragment offset: 0
+	TTL: 16384
+	protocol: 256
+	checksum: 48127
+	source: 10.0.1.100
+	destination: 10.0.1.1
+ETHERNET header:
+	destination: 76:B4:65:AF:0E:74
+	source: 7E:5D:81:B9:66:C0
+	type: 2048
+IP header:
+	version: 1024
+	header length: 1280
+	type of service: 0
+	length: 56
+	id: 0
+	fragment offset: 0
+	TTL: 16384
+	protocol: 0
+	checksum: 25698
+	source: 10.0.1.1
+	destination: 10.0.1.100
+ICMP header:
+	type: 3
+	code: 3
+	checksum: 47288
+ETHERNET header:
+	destination: 7E:5D:81:B9:66:C0
+	source: 76:B4:65:AF:0E:74
+	type: 2048
+IP header:
+	version: 1024
+	header length: 1280
+	type of service: 49152
+	length: 84
+	id: 42886
+	fragment offset: 0
+	TTL: 16384
+	protocol: 256
+	checksum: 48126
+	source: 10.0.1.100
+	destination: 10.0.1.1
+ETHERNET header:
+	destination: 76:B4:65:AF:0E:74
+	source: 7E:5D:81:B9:66:C0
+	type: 2048
+IP header:
+	version: 1024
+	header length: 1280
+	type of service: 0
+	length: 56
+	id: 0
+	fragment offset: 0
+	TTL: 16384
+	protocol: 0
+	checksum: 25698
+	source: 10.0.1.1
+	destination: 10.0.1.100
+ICMP header:
+	type: 3
+	code: 3
+	checksum: 47032
+ETHERNET header:
+	destination: 7E:5D:81:B9:66:C0
+	source: 76:B4:65:AF:0E:74
+	type: 2048
+IP header:
+	version: 1024
+	header length: 1280
+	type of service: 49152
+	length: 84
+	id: 42887
+	fragment offset: 0
+	TTL: 16384
+	protocol: 256
+	checksum: 48125
+	source: 10.0.1.100
+	destination: 10.0.1.1
+ETHERNET header:
+	destination: 76:B4:65:AF:0E:74
+	source: 7E:5D:81:B9:66:C0
+	type: 2048
+IP header:
+	version: 1024
+	header length: 1280
+	type of service: 0
+	length: 56
+	id: 0
+	fragment offset: 0
+	TTL: 16384
+	protocol: 0
+	checksum: 25698
+	source: 10.0.1.1
+	destination: 10.0.1.100
+ICMP header:
+	type: 3
+	code: 3
+	checksum: 46776
+ETHERNET header:
+	destination: 7E:5D:81:B9:66:C0
+	source: 76:B4:65:AF:0E:74
+	type: 2048
+IP header:
+	version: 1024
+	header length: 1280
+	type of service: 49152
+	length: 84
+	id: 42888
+	fragment offset: 0
+	TTL: 16384
+	protocol: 256
+	checksum: 48124
+	source: 10.0.1.100
+	destination: 10.0.1.1
+Using VNS sr stub code revised 2009-10-14 (rev 0.20)
+Loading routing table from server, clear local routing table.
+Loading routing table
+---------------------------------------------
+Destination	Gateway		Mask	Iface
+10.0.1.100		10.0.1.100	255.255.255.255	eth3
+192.168.2.2		192.168.2.2	255.255.255.255	eth1
+172.64.3.10		172.64.3.10	255.255.255.255	eth2
+---------------------------------------------
+Client ubuntu connecting to Server localhost:8888
+Requesting topology 0
+successfully authenticated as ubuntu
+Loading routing table from server, clear local routing table.
+Loading routing table
+---------------------------------------------
+Destination	Gateway		Mask	Iface
+10.0.1.100		10.0.1.100	255.255.255.255	eth3
+192.168.2.2		192.168.2.2	255.255.255.255	eth1
+172.64.3.10		172.64.3.10	255.255.255.255	eth2
+---------------------------------------------
+Router interfaces:
+eth3	HWaddr7e:5d:81:b9:66:c0
+	inet addr 10.0.1.1
+eth2	HWaddraa:8a:8e:0f:67:27
+	inet addr 172.64.3.1
+eth1	HWaddr06:3e:f9:72:72:59
+	inet addr 192.168.2.1
+ <-- Ready to process packets --> 
+eth3	HWaddr7e:5d:81:b9:66:c0
+	inet addr 10.0.1.1
+eth2	HWaddraa:8a:8e:0f:67:27
+	inet addr 172.64.3.1
+eth1	HWaddr06:3e:f9:72:72:59
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 42 
+THIS IS ETHER_TYPE: 806
+RECEIVED ARP PACKET
+RECEIVED ARP REQUEST
+REQUEST FOR OUR MAC ADDY FOUND
+MOST MATCHING DEST ENTRY IS 10.0.1.100
+SENDING ARP RESPONSE 
+eth3	HWaddr7e:5d:81:b9:66:c0
+	inet addr 10.0.1.1
+eth2	HWaddraa:8a:8e:0f:67:27
+	inet addr 172.64.3.1
+eth1	HWaddr06:3e:f9:72:72:59
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 98 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 40044
+PACKET'S CHECKSUM NETWORK 40044
+CASE IN WHICH IP IS SENT TO ONE OF OUR INTERFACES
+SENDING PACKET
+eth3	HWaddr7e:5d:81:b9:66:c0
+	inet addr 10.0.1.1
+eth2	HWaddraa:8a:8e:0f:67:27
+	inet addr 172.64.3.1
+eth1	HWaddr06:3e:f9:72:72:59
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 98 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 444
+PACKET'S CHECKSUM NETWORK 444
+CASE IN WHICH IP IS SENT TO ONE OF OUR INTERFACES
+SENDING PACKET
+eth3	HWaddr7e:5d:81:b9:66:c0
+	inet addr 10.0.1.1
+eth2	HWaddraa:8a:8e:0f:67:27
+	inet addr 172.64.3.1
+eth1	HWaddr06:3e:f9:72:72:59
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 98 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 188
+PACKET'S CHECKSUM NETWORK 188
+CASE IN WHICH IP IS SENT TO ONE OF OUR INTERFACES
+SENDING PACKET
+eth3	HWaddr7e:5d:81:b9:66:c0
+	inet addr 10.0.1.1
+eth2	HWaddraa:8a:8e:0f:67:27
+	inet addr 172.64.3.1
+eth1	HWaddr06:3e:f9:72:72:59
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 98 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 65467
+PACKET'S CHECKSUM NETWORK 65467
+CASE IN WHICH IP IS SENT TO ONE OF OUR INTERFACES
+SENDING PACKET
+eth3	HWaddr7e:5d:81:b9:66:c0
+	inet addr 10.0.1.1
+eth2	HWaddraa:8a:8e:0f:67:27
+	inet addr 172.64.3.1
+eth1	HWaddr06:3e:f9:72:72:59
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 98 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 65211
+PACKET'S CHECKSUM NETWORK 65211
+CASE IN WHICH IP IS SENT TO ONE OF OUR INTERFACES
+SENDING PACKET
+eth3	HWaddr7e:5d:81:b9:66:c0
+	inet addr 10.0.1.1
+eth2	HWaddraa:8a:8e:0f:67:27
+	inet addr 172.64.3.1
+eth1	HWaddr06:3e:f9:72:72:59
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 98 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 64955
+PACKET'S CHECKSUM NETWORK 64955
+CASE IN WHICH IP IS SENT TO ONE OF OUR INTERFACES
+SENDING PACKET
+eth3	HWaddr7e:5d:81:b9:66:c0
+	inet addr 10.0.1.1
+eth2	HWaddraa:8a:8e:0f:67:27
+	inet addr 172.64.3.1
+eth1	HWaddr06:3e:f9:72:72:59
+	inet addr 192.168.2.1
+THIS IS INTERFACE: eth3
+*** -> Received packet of length 98 
+THIS IS ETHER_TYPE: 800
+RECEIVED IP PACKET
+COMPUTED CHECKSUM NETWORK 64699
+PACKET'S CHECKSUM NETWORK 64699
+CASE IN WHICH IP IS SENT TO ONE OF OUR INTERFACEETHERNET header:
+	destination: 76:B4:65:AF:0E:74
+	source: 7E:5D:81:B9:66:C0
+	type: 2048
+IP header:
+	version: 1024
+	header length: 1280
+	type of service: 0
+	length: 56
+	id: 0
+	fragment offset: 0
+	TTL: 16384
+	protocol: 0
+	checksum: 25698
+	source: 10.0.1.1
+	destination: 10.0.1.100
+ICMP header:
+	type: 3
+	code: 3
+	checksum: 46520
