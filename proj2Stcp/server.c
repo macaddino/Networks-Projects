@@ -1,6 +1,7 @@
 /*
  * server.c 
  *
+ *
  * This file contains the server application. It simply waits for the 
  * client to send it something, which it interprets as the name of some
  * file. It then sends an OK to the client (if it can access the requested
