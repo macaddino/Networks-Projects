@@ -183,27 +183,30 @@ void sr_handlepacket(struct sr_instance* sr,
       /* Case in which IP is sent to one of our interfaces */
       if (ip_hdr->ip_p == ip_protocol_icmp)
       {
-        /* Received ICMP packet */
-        /* Received echo request */
+        /* Received ICMP packet; check validity */
         struct sr_if * recvIface = sr_get_interface(sr, interface);
-	sr_icmp_t3_hdr_t * icmp_hdr = (sr_icmp_t3_hdr_t *) packet+sizeof(sr_ethernet_hdr_t)+sizeof(sr_ip_hdr_t);
-	assert(len >= sizeof(sr_ethernet_hdr_t) + sizeof(sr_ip_hdr_t) + sizeof(sr_icmp_t3_hdr_t));
+        sr_icmp_hdr_t * icmp_hdr = (sr_icmp_hdr_t *) (packet+sizeof(sr_ethernet_hdr_t)+sizeof(sr_ip_hdr_t));
+	assert(len >= sizeof(sr_ethernet_hdr_t) + sizeof(sr_ip_hdr_t) + sizeof(sr_icmp_hdr_t));
         int cksum_icmp = icmp_hdr->icmp_sum;
         icmp_hdr->icmp_sum = 0;
-        assert(cksum_icmp = cksum((void *) icmp_hdr, sizeof(sr_icmp_t3_hdr_t)));
-        
-        icmp_hdr->icmp_type = 0;
-        icmp_hdr->icmp_code = 0;
-        icmp_hdr->icmp_sum = cksum((void *) icmp_hdr, sizeof(sr_icmp_t3_hdr_t));
+        assert(cksum_icmp = cksum((void *) icmp_hdr, len - sizeof(sr_ethernet_hdr_t) - sizeof(sr_ip_hdr_t)));
+       
+        if (icmp_hdr->icmp_type == 8)
+        {
+          /* Received echo request */ 
+          icmp_hdr->icmp_type = 0;
+          icmp_hdr->icmp_code = 0;
+          icmp_hdr->icmp_sum = cksum((void *) icmp_hdr, len - sizeof(sr_ethernet_hdr_t) - sizeof(sr_ip_hdr_t));
 
-        ip_hdr->ip_dst = ip_hdr->ip_src;
-        ip_hdr->ip_src = recvIface->ip;
-        ip_hdr->ip_sum = 0;
-        ip_hdr->ip_sum = cksum((void *) ip_hdr, sizeof(sr_ip_hdr_t));
-        memcpy(e_hdr->ether_dhost, e_hdr->ether_shost, ETHER_ADDR_LEN);
-        memcpy(e_hdr->ether_shost, recvIface->addr, ETHER_ADDR_LEN);
-        /* Send echo reply */ 
-        sr_send_packet(sr, packet, len, recvIface->name);
+          ip_hdr->ip_dst = ip_hdr->ip_src;
+          ip_hdr->ip_src = recvIface->ip;
+          ip_hdr->ip_sum = 0;
+          ip_hdr->ip_sum = cksum((void *) ip_hdr, sizeof(sr_ip_hdr_t));
+          memcpy(e_hdr->ether_dhost, e_hdr->ether_shost, ETHER_ADDR_LEN);
+          memcpy(e_hdr->ether_shost, recvIface->addr, ETHER_ADDR_LEN);
+          /* Send echo reply */ 
+          sr_send_packet(sr, packet, len, recvIface->name);
+        }
       }
       else
       {
